@@ -1,4 +1,20 @@
+# Virtual environments
+.venv/
+.venv-darwin/
 
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.dep
+*.pdf
+
+# Mac files
+.DS_Store
+
+# Temporary files
+~$*
 # Created by https://www.gitignore.io/api/latex,emacs,macos
 
 ### Emacs ###
@@ -16,25 +32,7 @@ tramp
 # Org-mode
 .org-id-locations
 *_archive
-# ---- Custom ignores for calbafa606 ----
 
-# Virtual environments
-.venv/
-.venv-darwin/
-
-# LaTeX build outputs
-*.aux
-*.log
-*.out
-*.toc
-*.dep
-*.pdf
-
-# Mac junk
-.DS_Store
-
-# Temporary Office files
-~$*
 # flymake-mode
 *_flymake.*
 
