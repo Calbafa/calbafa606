@@ -1,20 +1,26 @@
----
-# This is metadata for indexing HAFiscal as a 'REMARK'
-# in the https://github.com/econ-ark.org project
-github_repo_url: {{REPO_URL}} # required
-remark-name: HAFiscal # required
-notebooks: # path to any dashboards within the repo - optional
-  - HAFiscal-dashboard.ipynb
-tags: # Use the relevant tags
-  - REMARK
-  - Notebook
-  - Reproduction
-keywords: # optional
-  - Consumption
-  - Stimulus
-  - Fiscal Policy
-  - Welfare
----
-# Welfare and Spending Effects of Consumption Stimulus Policies
+remark-name: calbafa606
 
-This repository is a complete software archive for the paper "Welfare and Spending Effects of Consumption Stimulus Policies" by Carroll, Crawley, Du, Frankovic, and Tretvoll (2025).
+title: "Disentangling Monetary Policy, Central Bank Information, and Response-to-News Shocks: Evidence from Mexico"
+
+authors:
+  - name: Carlos Alba
+
+description: >
+  This project studies the effects of monetary policy shocks in Mexico using high-frequency identification.
+  It decomposes monetary policy surprises into monetary policy, central bank information, and response-to-news shocks,
+  and analyzes their macroeconomic effects.
+
+repo-url: https://github.com/Calbafa/calbafa606
+
+github-username: Calbafa
+
+tags:
+  - monetary policy
+  - high-frequency identification
+  - emerging markets
+  - macroeconomics
+
+notebooks: []
+
+reproduce:
+  script: reproduce.sh
