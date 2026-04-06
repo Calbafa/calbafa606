@@ -3,107 +3,604 @@
 \input{\latexroot/@resources/subfile-setup.ltx}
 \begin{document}
 
-\pdfonly{
-  % execute this version if compiling with pdflatex
-  \chead[Appendix: No Splurge]{Appendix: No Splurge}      % but PDF version does
-  % For standalone compilation ONLY - use more reliable detection
-  \whenstandalone{ % standalone: enter appendix mode with letter numbering
-    \appendix       % Enter appendix mode for letter numbering
-    % Only add `Appendices' header if we're truly standalone (not when build system defines \OnlineAppendixHandling)
-    \ifdef{\OnlineAppendixHandling}{
-      % Build system standalone - don't add header as main doc already did
-    }{
-      % True standalone - add appendices header
-      \section*{Appendices}
-    }
-    % When integrated, main document already handles \appendix and \appendixpage via Appendix.tex
-  }
+\section{Appendix: Supplemental Results}
+
+\renewcommand{\thetable}{\thesection{}.1}
+\begin{table}[htbp]
+\hypertarget{Table B.1}{}
+\begin{center}
+\resizebox{0.58\textwidth}{!}{
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{Target-rate surprise} & \multicolumn{2}{c}{FG surprise} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+ & Extended & Baseline & Extended & Baseline \\
+\midrule
+
+\multicolumn{5}{l}{\textbf{\emph{Domestic news}}} \\[0.2em]
+
+$\Delta \log$ domestic output (6m)
+& -0.037 & -0.036 
+& 0.139 & 0.239 \\
+& (0.193) & (0.177)
+& (0.726) & (0.674) \\
+
+$\Delta \log$ CPI (6m)
+& -0.248 & -0.287 
+& 1.985 & 2.109 \\
+& (1.269) & (1.246)
+& (3.289) & (3.483) \\
+
+$\Delta \log$ Stock market index (3m)
+& 0.036 & -- 
+& 0.122 & -- \\
+& (0.093) & 
+& (0.230) & \\
+
+$\Delta \log$ MXN/USD (3m)
+& -0.010 & 0.007 
+& 1.124** & 0.962** \\
+& (0.191) & (0.168)
+& (0.442) & (0.410) \\
+
+$\Delta$ FX implied volatility (3m)
+& 0.004* & 0.004* 
+& -0.009** & -0.010** \\
+& (0.002) & (0.002)
+& (0.004) & (0.004) \\
+
+$\Delta$ Interbank rate (3m)
+& 0.014 & 0.022 
+& -0.003 & -0.010 \\
+& (0.027) & (0.015)
+& (0.057) & (0.027) \\
+
+$\Delta$ 2-year gov. yield (3m)
+& 0.020 & 0.030* 
+& 0.114 & 0.008 \\
+& (0.024) & (0.015)
+& (0.075) & (0.039) \\
+
+$\Delta$ 10-year gov. yield (3m)
+& 0.023 & -- 
+& -0.136 & -- \\
+& (0.042) & 
+& (0.114) & \\
+
+$\Delta$ Yield curve slope (3m)
+& -0.018 & -- 
+& 0.055 & -- \\
+& (0.043) & 
+& (0.093) & \\[0.4em]
+
+\multicolumn{5}{l}{\textbf{\emph{External news}}} \\[0.2em]
+
+$\Delta \log$ Industrial prod. (6m)
+& -0.006 & 0.007 
+& 0.718 & 0.782 \\
+& (0.296) & (0.261)
+& (0.881) & (0.849) \\
+
+$\Delta \log$ US CPI (6m)
+& 1.143 & 1.201 
+& -1.596 & -1.219 \\
+& (0.916) & (0.979)
+& (1.913) & (2.053) \\
+
+$\Delta \log$ S\&P 500 (3m)
+& 0.152 & 0.129 
+& -0.056 & 0.252 \\
+& (0.171) & (0.143)
+& (0.396) & (0.337) \\
+
+$\Delta \log$ VIX (3m)
+& 0.011 & -- 
+& -0.034 & -- \\
+& (0.025) & 
+& (0.070) & \\
+
+$\Delta$ 2-year Treasury yield (3m)
+& -0.001 & -0.007 
+& 0.042 & 0.091** \\
+& (0.030) & (0.021)
+& (0.068) & (0.040) \\
+
+$\Delta$ 10-year Treasury yield (3m)
+& -0.064* & -0.052* 
+& 0.005 & -0.095* \\
+& (0.038) & (0.026)
+& (0.100) & (0.054) \\
+
+$\Delta$ Yield curve slope (3m)
+& 0.008 & -- 
+& -0.030 & -- \\
+& (0.023) & 
+& (0.053) & \\
+
+$\Delta \log$ Brent oil price (3m)
+& 0.078* & 0.078* 
+& 0.113 & 0.123 \\
+& (0.044) & (0.045)
+& (0.106) & (0.110) \\[0.4em]
+
+\multicolumn{5}{l}{\textbf{\emph{Lagged monetary policy surprises}}} \\[0.2em]
+
+Surprise$_{t-1}$
+& 0.020 & 0.021 
+& -0.276*** & -0.225** \\
+& (0.123) & (0.120)
+& (0.096) & (0.097) \\
+
+Surprise$_{t-2}$
+& -0.013 & -- 
+& -0.120 & -- \\
+& (0.087) & 
+& (0.084) & \\
+
+\midrule
+$R^2$
+& 0.227 & 0.224
+& 0.195 & 0.154 \\
+
+Adjusted $R^2$
+& 0.151 & 0.173
+& 0.115 & 0.099 \\
+
+Observations
+& 213 & 213
+& 213 & 213 \\
+
+\bottomrule
+\end{tabular}}
+\caption{Regressions of High-Frequency Monetary Policy Surprises on Macroeconomic and
+Financial News: Extended vs.\ Baseline Specification}
+\end{center}
+\begin{footnotesize}
+\textit{Notes}: The extended specification augments the baseline projection reported in Table~1 with a broader set of macro-financial controls. Variables not included in the baseline are denoted by ``--''. Standard errors (in parentheses) are heteroskedasticity- and autocorrelation-consistent (HAC), computed using a Newey--West estimator. $^{*}$, $^{**}$, and $^{***}$ denote significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{footnotesize}
+\end{table}
+
+\renewcommand{\thefigure}{\thesection{}.1}
+\begin{figure}[htbp]
+\hypertarget{Figure B.1}{}
+\hypertarget{Panel AF2}{}
+\hypertarget{Panel BF2}{}
+\begin{center}
+\resizebox{11.5cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-Extended.pdf}
 }
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Baseline vs. Extended Information Set}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-% For standalone compilation, reset counter to start at A
-\whenstandalone{% standalone: reset section counter to start at A
-  \setcounter{section}{1}  % Start with B for standalone compilation
+
+
+
+\renewcommand{\thefigure}{\thesection{}.2}
+\begin{figure}[htbp]
+\hypertarget{Figure B.2}{}
+\hypertarget{Panel AF2}{}
+\hypertarget{Panel BF2}{}
+\begin{center}
+\resizebox{11.5cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-Extended.pdf}
 }
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Baseline vs. Extended Information Set}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-Additional robustness exercises show that the model can fit the liquid wealth distribution for alternative interest rates of $0.5$ percent and $1.5$ percent per quarter. In both cases, the estimation exactly matches the median liquid wealth to permanent income ratios for each education group listed in Panel~B of Table~\ref{tab:estimBetas}.
-\section{Results in a model without the splurge}
-\whenintegrated{\label{app:Model-without-splurge}} % integrated doc: SST for labels
+\renewcommand{\thetable}{\thesection{}.2}
+\begin{table}[htbp]
+\hypertarget{Table B.2}{}
+\begin{center}
+\resizebox{0.65\textwidth}{!}{
+\begin{tabular}{lcc}
+\toprule
+Variable (baseline set) & Target-rate surprise & FG surprise \\
+\midrule
+Constant & -0.883 & -1.406 \\
 
-\subsection{Introduction}
-\whenintegrated{\label{app:Model-without-splurge-intro}} % integrated doc: SST for labels
+\multicolumn{3}{l}{\textbf{\emph{Domestic news}}} \\[0.2em]
+$\Delta \log$ domestic output (6m) & -- & -- \\
+$\Delta \log$ CPI (6m) & -- & -- \\
+$\Delta \log$ MXN/USD (3m) & -- & -- \\
+$\Delta$ FX implied volatility (3m) & 0.001 & -0.004 \\
+$\Delta$ Interbank rate (3m) & 0.020 & -- \\
+$\Delta$ 2-year gov. yield (3m) & 0.013 & -- \\[0.4em]
 
-In this appendix, we consider the implications for our results of removing splurge consumption from the model. First, we discuss that model's ability to match the empirical targets that we used to estimate the splurge in section~\ref{sec:splurge} of the paper. Second, we repeat the estimation of discount factor distributions in the US model in section~\ref{sec:estimBetas}, and discuss the implications for both targeted and untargeted moments. Finally, we use the reestimated model to asses the relevance of the splurge for the effectiveness of the three policies.
+\multicolumn{3}{l}{\textbf{\emph{External news}}} \\[0.2em]
+$\Delta \log$ Industrial prod. (6m) & 0.020 & -- \\
+$\Delta \log$ US CPI (6m) & 0.849 & -- \\
+$\Delta \log$ S\&P 500 (3m) & -- & -- \\
+$\Delta$ 2-year Treasury yield (3m) & -0.002 & -- \\
+$\Delta$ 10-year Treasury yield (3m) & -0.009 & -- \\
+$\Delta \log$ Brent oil price (3m) & 0.003 & -- \\[0.4em]
 
-\subsection{Matching the iMPCs without the splurge}
-\whenintegrated{\label{app:nosplurge-matching-impcs}} % integrated doc: SST for labels
+\multicolumn{3}{l}{\textbf{\emph{Lagged monetary policy surprises}}} \\[0.2em]
+Surprise$_{t-1}$ & 0.005 & -0.038 \\
 
-For the purpose of evaluating the results in the model without the splurge we do not require the reestimation of our Norwegian model, as the purpose of the latter is the estimation of the splurge. Nevertheless, we test how well the model can match the dynamics of spending after a temporary income shock as reported by~\cite{fagereng-mpc-2021} when the splurge is zero.
-Figure~\ref{fig:splurge0_Norwayestimation} illustrates the fit without the splurge and compares it to our baseline estimation.
+\midrule
+Optimal $\lambda$ & 0.798 & 2.729 \\
+Non-zero coefficients & 10 & 3 \\
+$R^2$ & 0.162 & 0.056 \\
+Observations & 213 & 213 \\
+\bottomrule
+\end{tabular}}
+\caption{LASSO Selection over the Baseline Information Set}
+\end{center}
+\begin{footnotesize}
+\textit{Notes}: This table reports LASSO (L1-penalized) projections estimated over the baseline information set used in Table~1, evaluated at the cross-validated optimal penalty parameter $\lambda$. Regressors are standardized prior to estimation. Variables not selected by the regularization procedure are denoted by ``--''.
+\end{footnotesize}
+\end{table}
 
-\subfile{../Figures/splurge0_Norwayestimation}
 
-While the splurge helps in matching the empirical evidence on the iMPC, the model without the splurge also performs relatively well. This is because the model without the splurge is able to generate a high initial marginal propensity to consume through a wider distribution of discount factors ($\beta = 0.921$ and $\nabla=0.116$) relative to the model with a splurge ($\beta = 0.968$ and $\nabla=0.0578$). This ensures that sufficiently many agents are at the borrowing constraint and thus sensitive to transitory income shocks.\footnote{The model without the splurge implies there is a group of highly impatient households who have discount rates close to 0.8. While this is possible, such a discount rate implies these households care very little about their consumption even just a few years in the future.}
 
-However, the model is not quite able to match the difference in spending between the initial year of the lottery win and the year after.
-The model without the splurge exhibits a higher spending propensity in the year after the shock occurs as borrowing-constrained agents spend the additional income quicker.
-The model without the splurge also provides a worse fit of the distribution of liquid wealth.
-Relative to the baseline model, and to the data, the model without a splurge generates a more unequal wealth distribution.
 
-The reason for these two effects, becomes apparent when considering the cross-sectional implications of the models with and without the splurge across different wealth quartiles.
-While the model with the splurge can account for the empirically-observed initial MPCs among the wealthiest, the model without the splurge exhibits much lower MPCs among that group, see Table~\ref{tab:Comparison-Splurge-Table}. The wealthiest group will thus be very patient and have low MPCs, which can explain why the wealth distribution becomes more unequal and doesn't quite fit the targeted distribution in the data in the version of the model without the splurge.
+\renewcommand{\thefigure}{\thesection{}.3}
+\begin{figure}[htbp]
+\hypertarget{Figure B.3}{}
+\begin{center}
+\resizebox{11.5cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-Lasso.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Baseline vs. LASSO Diagnostic Projections}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-Overall, the model fit with the data deteriorates roughly by a factor of two measured by the Euclidean norm of the targeting error.\footnote{Specifically, the Euclidean norm of the targeting error increases from 0.04 to 0.08 for the time-profile of the marginal propensity to consume when the splurge is removed, from 0.16 to 0.29 for the marginal propensity to consume across wealth quartiles and from 0.027 to 0.032 for the Lorentz curve.}
+\renewcommand{\thefigure}{\thesection{}.4}
+\begin{figure}[htbp]
+\hypertarget{Figure B.4}{}
+\begin{center}
+\resizebox{11.5cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-Lasso.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Baseline vs. LASSO Diagnostic Projections}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-\subfile{../Tables/Comparison_Splurge_Table}
+\renewcommand{\thetable}{\thesection{}.3}
+\begin{table}[H]
+\begin{center}
+\resizebox{0.5\textwidth}{!}{
+\begin{tabular}{lc}
+\toprule
+ & Equity-price surprise \\
+\midrule
 
-\subsection{Estimating discount factor distributions without the splurge}
-\whenintegrated{\label{app:nosplurge-estimating-betas}} % integrated doc: SST for labels
+\multicolumn{2}{l}{\textbf{\emph{External financial variables}}} \\[0.2em]
 
-Figure~\ref{fig:LorenzPtsSplZero} shows that the model without splurge consumption can also match the wealth distributions in the three education groups very well. We therefore turn to the implications of this version of the model for the untargeted moments discussed in section~\ref{sec:nonTargetedMoments}.
+$\Delta \log$ S\&P 500  
+& 0.493*** \\
+& (0.061) \\
 
-\subfile{../Code/HA-Models/FromPandemicCode/LorenzPtsSplZero}
+$\Delta \log$ VIX  
+& 0.017* \\
+& (0.010) \\
 
-The main difference between the models with and without splurge consumption is that without splurge consumption the MPCs drop for each education group and wealth quartile.
-The difference is largest for the College group and for the highest wealth quartile (obviously with substantial overlap between these two groups). This is shown in the two panels in Table~\ref{tab:nonTargetedMoments-wSplZero}. The rest of the table shows that the distribution of wealth is not substantially different in the model estimated without splurge consumption.
+$\Delta$ 2-year Treasury yield 
+& 0.029** \\
+& (0.011) \\[0.4em]
 
-\subfile{../Tables/nonTargetedMoments_wSplZero}
+Constant  
+& $-$0.025 \\
+& (0.057) \\[0.4em]
 
-Finally, we again consider the  implications of our model for the dynamics of spending over time and for the dynamics of spending for households that remain unemployed long enough for unemployment benefits to expire. Figure~\ref{fig:untargetedMoments_wSplZero} repeats Figure~\ref{fig:untargetedMoments} in the paper with results from the model without splurge consumption added. The implication is that the model without a splurge leads to a slightly too low MPC in the year of a lottery win and a slightly higher MPC in the year after.
+\midrule
+$R^2$              & 0.300 \\
+Adjusted $R^2$     & 0.290 \\
+Observations       & 214   \\
+\bottomrule
+\end{tabular}}
+\caption{Regression of Equity-Price Surprises on External Financial Variables}
+\end{center}
+\begin{footnotesize}
+\textit{Notes}: This table reports coefficient estimates from a regression of equity-price surprises on external financial variables. Standard errors (in parentheses) are heteroskedasticity- and autocorrelation-consistent (HAC), computed using a Newey--West estimator. $^{*}$, $^{**}$, and $^{***}$ denote significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{footnotesize}
+\end{table}
 
-The drop in spending when unemployment benefits expire is virtually the same in the model without splurge consumption (17 percent versus 18 percent in the baseline).
-While the consumption dynamics across the models with and without a splurge are fairly similar, the underlying drivers of the consumption drop upon expiry of unemployment benefits are different.
-In the model with the splurge, the drop in income translates directly into lower consumption via the splurge itself.
-In the model without the splurge it is the sharp rise in agents hitting the borrowing constraint which accounts for the consumption drop after UI benefits expire.
-This is shown in the solid and dashed red lines in Figure~\ref{fig:expiryUI_wSplZero}, and is due to the wider distribution of discount factors that is needed to match the wealth distributions in the model without the splurge. This leads to a greater number of agents being close the borrowing constraint.
 
-\subfile{../Figures/untargetedMoments_wSplZero}
+\renewcommand{\thefigure}{\thesection{}.5}
+\begin{figure}[htbp]
+\hypertarget{Figure B.5}{}
+\begin{center}
+\resizebox{13cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-IPCorto.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Specification using  Orthogonalized Equity-Price Surprise}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-\subsection{Multipliers in the absence of the splurge}
-\whenintegrated{\label{app:nosplurge-multipliers}} % integrated doc: SST for labels
+\renewcommand{\thefigure}{\thesection{}.6}
+\begin{figure}[htbp]
+\hypertarget{Figure B.6}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-IPCorto.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Specification using  Orthogonalized Equity-Price Surprise}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-In this section we simulate the three fiscal policies from the main text in the estimated model without the splurge. The shape of the impulse response functions only marginally change relative to the model with the splurge. Hence, we focus on the quantitative changes as summarized by the cumulative multipliers in Figure~\ref{fig:cumulativemultipliers_SplurgeComp}.
-The figure shows the multipliers when AD effects are switched on for the model with and without the splurge.
-Table~\ref{tab:Multiplier-SplurgeComp} shows the 10y-horizon multiplier across the two models.
+\renewcommand{\thefigure}{\thesection{}.7}
+\begin{figure}[htbp]
+\hypertarget{Figure B.7}{}
+\begin{center}
+\resizebox{13cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-cero.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, RN, and CBI Shocks: Exogenous High-Frequency Block Specification}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-The absence of the splurge entails a calibration with a lower average MPC in the population.
-Hence, the check and tax cut exhibit lower multipliers when there is no splurge.
-For the UI extension we observe the opposite pattern, as the multiplier is larger in the model without the splurge.
-This due to the consumption dynamics around the expiry of UI benefits described in the previous section.
-In the model without the splurge more agents hit the borrowing constraint upon the expiry of benefits.
-Providing those agents with an extension of UI benefits thus turns out to be slightly more powerful.
 
-The policy ranking in terms of the multiplier shifts slighlty.
-In the model with the splurge, the check policy delivers multiplier effects much more rapidly than the UI extension.
-In the model without splurge consumption, the UI extension appears superior to the check, both at shorter and longer horizons.
-Both models agree on the tax cut being the least effective policy.
 
-\subfile{../Figures/cumulativemultipliers_SplurgeComp}
+\renewcommand{\thefigure}{\thesection{}.8}
+\begin{figure}[htbp]
+\hypertarget{Figure B.8}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-cero.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Exogenous High-Frequency Block Specification}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-\subfile{../Tables/Multiplier_SplurgeComp}
+\renewcommand{\thefigure}{\thesection{}.9}
+\begin{figure}[htbp]
+\hypertarget{Figure B.9}{}
+\begin{center}
+\resizebox{13cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-2024m12_gs2.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Specification including the Two-Year Government Bond Yield instead of the One-Year Government Bond Yield}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-% Force output of all remaining tables and figures
-\FloatBarrier
+\renewcommand{\thefigure}{\thesection{}.10}
+\begin{figure}[htbp]
+\hypertarget{Figure B.10}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-2024m12_gs2.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Specification including the Two-Year Government Bond Yield instead of the One-Year Government Bond Yield}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
 
-\smartbib
+\renewcommand{\thefigure}{\thesection{}.11}
+\begin{figure}[htbp]
+\hypertarget{Figure B.11}{}
+\begin{center}
+\resizebox{12cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-2024m12_Fund_and_gs2.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Specification including the Interbank Funding Interest Rate and the Two-Year Government Bond Yield}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.12}
+\begin{figure}[htbp]
+\hypertarget{Figure B.12}{}
+\begin{center}
+\resizebox{12cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-2024m12_Fund_and_gs2.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Specification including the Interbank Funding Interest Rate and the Two-Year Government Bond Yield}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.13}
+\begin{figure}[htbp]
+\hypertarget{Figure B.13}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR_igae.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Specification including IGAE instead of Interpolated GDP}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.14}
+\begin{figure}[htbp]
+\hypertarget{Figure B.14}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-igae.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Specification including IGAE instead of Interpolated GDP}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+
+\renewcommand{\thefigure}{\thesection{}.15}
+\begin{figure}[htbp]
+\hypertarget{Figure B.15}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR_inpc.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Specification including Headline INPC instead of Core INPC}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.16}
+\begin{figure}[htbp]
+\hypertarget{Figure B.16}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-inpc.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Specification including Headline INPC instead of Core INPC}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.17}
+\begin{figure}[htbp]
+\hypertarget{Figure B.17}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-2024m12_shadow.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Specification including the Shadow Rate instead of the U.S. 2-Year Treasury Yield}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.18}
+\begin{figure}[htbp]
+\hypertarget{Figure B.18}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-2024m12_shadow.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Specification including the Shadow Rate instead of the U.S. 2-Year Treasury Yield}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+
+\renewcommand{\thefigure}{\thesection{}.19}
+\begin{figure}[htbp]
+\hypertarget{Figure B.19}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-extradumm_2012.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Pandemic Dummies Extended Through December 2020}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.20}
+\begin{figure}[htbp]
+\hypertarget{Figure B.20}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-extradum2012.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Pandemic Dummies Extended Through December 2020}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.21}
+\begin{figure}[htbp]
+\hypertarget{Figure B.21}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-2019.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks: Sample 2002-2019}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.22}
+\begin{figure}[htbp]
+\hypertarget{Figure B.22}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-2019m12.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks: Sample 2002-2019}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+
+
+
+
+\renewcommand{\thefigure}{\thesection{}.23}
+\begin{figure}[htbp]
+\hypertarget{Figure B.23}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/TR-1sd.pdf}
+}
+\caption[5pt]{Impulse Responses to Target-Rate, Response-to-News, and Central Bank Information Shocks without Standardization}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
+\renewcommand{\thefigure}{\thesection{}.24}
+\begin{figure}[htbp]
+\hypertarget{Figure B.24}{}
+\begin{center}
+\resizebox{14cm}{!} {
+\includegraphics[width=\linewidth]{Figures/Figures_Mex/FG-1sd.pdf}
+}
+\caption[5pt]{Impulse Responses to Forward Guidance, Response-to-News, and Central Bank Information Shocks without Standardization}
+\end{center}
+\begin{footnotesize} 
+Notes: Responses  are  presented  for a 72-month horizon with the associated 68\% highest posterior density intervals (HPDIs).
+\end{footnotesize} 
+\end{figure}
+
 
 \end{document}
+
+
+
