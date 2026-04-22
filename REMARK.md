@@ -1,22 +1,23 @@
 ---
-# This is metadata for indexing HAFiscal as a 'REMARK'
+# Metadata for indexing MexicoMP as a 'REMARK'
 # in the https://github.com/econ-ark.org project
-github_repo_url: https://github.com/econ-ark/HAFiscal
-remark-name: HAFiscal # required
-notebooks: # path to any notebooks within the repo - optional
-  - HANK-and-SAM-tutorial.ipynb
-dashboards: # path to any dashboards (Voila) within the repo - optional
-  - dashboard/app.ipynb
-tags: # Use the relevant tags
+github_repo_url: https://github.com/Calbafa/calbafa606
+remark-name: MexicoMP
+notebooks: []
+dashboards: []
+tags:
   - REMARK
-  - Notebook
   - Reproduction
-keywords: # optional
-  - Consumption
-  - Stimulus
-  - Fiscal Policy
-  - Welfare
+keywords:
+  - Monetary Policy
+  - High-Frequency Identification
+  - Central Bank Information
+  - Response to News
+  - Forward Guidance
+  - Bayesian VAR
+  - Emerging Market Economies
+  - Mexico
 ---
-# Welfare and Spending Effects of Consumption Stimulus Policies
+# Disentangling Conventional and Unconventional Monetary Policy Shocks in an Emerging Market
 
-This repository is a complete software archive for the paper "Welfare and Spending Effects of Consumption Stimulus Policies" by Carroll, Crawley, Du, Frankovic, and Tretvoll (2025).
+This repository is a REMARK for the paper "Disentangling Conventional and Unconventional Monetary Policy Shocks in an Emerging Market" by Carlos Alba (2026). It analyzes the macroeconomic effects of target-rate and forward guidance innovations in Mexico, disentangling pure monetary policy shocks from central bank information (CBI) and response-to-news (RN) components using high-frequency identification and a monthly Bayesian VAR.
