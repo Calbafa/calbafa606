@@ -8,24 +8,22 @@
   \newcommand{\versn}{Web}
 }
 
-\title{Welfare and Spending Effects \\ of Consumption Stimulus Policies}
+\title{Disentangling Conventional and Unconventional Monetary Policy Shocks in an Emerging Market}
 
-\author{Christopher D. Carroll\authNum \and Edmund Crawley\authNum \and William Du\authNum \and Ivan Frankovic\authNum \and H{\aa}kon Tretvoll\authNum}
+\author{Carlos Alba\authNum}
 
-\keywords{stimulus checks, unemployment insurance extensions, payroll tax cuts, HANK/heterogeneous agent models, marginal propensity to consume, spending multipliers}
+\keywords{Monetary Policy; High-Frequency Identification; Central Bank Information; Response to News; Forward Guidance; Bayesian VAR; Emerging Market Economies}
 
-\jelclass{E21, E62, H31 \\[0pt]
-  \href{https://econ-ark.org}{\includegraphics[width=1.5cm]{images/PoweredByEconARK}}
-}
+\jelclass{E43; E52; E58; F42}
 
-\date{\today}
+\date{February 2026}
 
 \maketitle
 \vspace{-0.5\baselineskip}
 
 \whenintegrated{\label{abstract}} % integrated doc: SST for labels
 \begin{verbatimwrite}{HAFiscal-Abstract.txt}
-  Using a heterogeneous agent model calibrated to match spending dynamics over four years following an income shock (\cite{fagereng-mpc-2021}), we assess the effectiveness of three fiscal stimulus policies implemented during recent recessions.  Unemployment insurance (UI) extensions are the ``bang for the buck'' winner when the metric is effectiveness in boosting utility.  Stimulus checks are second-best and have two advantages (over UI): they arrive faster, and are scalable.  A temporary (two-year) cut in wage taxation is considerably less effective than the other policies and has negligible effects in the version of our model without a multiplier.
+This paper analyzes the macroeconomic effects of innovations to the central bank’s target policy rate and forward guidance (FG) in an emerging market economy. For each policy tool, we disentangle pure monetary policy innovations from central bank information (CBI) and central bank response-to-news (RN) components embedded in high-frequency monetary policy surprises. We show that, when CBI and RN components are not isolated, contractionary target-rate shocks exhibit the familiar output, price, and exchange-rate puzzles and are followed by a counterintuitive rise in inflation expectations, while contractionary FG shocks appear to generate disproportionately large and fast real effects. Once CBI and RN components are isolated, the estimated effects of contractionary target-rate shocks become broadly consistent with standard monetary transmission mechanisms, featuring delayed contractions in output and prices, an appreciation of the domestic currency, and well-anchored inflation expectations. In turn, the effects of FG shocks become more conservative and broadly similar to those of pure target-rate shocks. Notably, RN components play asymmetric contamination roles across policy instruments: they tend to attenuate the contractionary effects of target-rate shocks, but amplify and accelerate the estimated effects of FG innovations.
 \end{verbatimwrite}
 \begin{abstract}
   \input{HAFiscal-Abstract.txt}
@@ -39,34 +37,21 @@
 \begin{footnotesize}
   \setlength{\parskip}{0pt}
   \parbox{0.9\textwidth}{
-    %  \begin{center}
     \begin{tabbing}
-      \texttt{~~~~~~~~~~~~~~~~~~~~~~~} \= \=  \\
-      \texttt{~~~~GitHub~Repo:~~~~~~~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal}{https://github.com/\owner/HAFiscal}} \\
-      \texttt{~~~~~~~~~~~~~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/HAFiscal/}{https://\owner.github.io/HAFiscal/}} \\
-      \texttt{~~~~~~~~~~~~~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal/blob/master/HAFiscal.pdf}{HAFiscal.pdf}} \\
-      \texttt{~~~~~~~~~~~~~~~Slides:~} \> \> \texttt{\href{https://\owner.github.io/HAFiscal/HAFiscal-Slides.pdf}{https://\owner.github.io/HAFiscal/HAFiscal-Slides.pdf}} \\
-      \texttt{~~~~~~~~~~~~~~~~~~~~~~~} \> \>  \\
-      \texttt{~~~~Replication~Package:~} \> \> \texttt{\href{https://doi.org/10.5281/zenodo.17861977}{10.5281/zenodo.17861977}} \\
-      \texttt{~~~~~~~~~~~~~~~~~~~~~~~} \> \>  \\
-      \texttt{~~~~Other~Materials:~~~} \> \> \\
-      \texttt{~~~~~Jupyter~Notebook:~} \> \> \texttt{\href{https://econ-ark.org/materials?hafiscal}{https://econ-ark.org/materials?hafiscal}} \\
-      \texttt{~~~~~~~HANK~Dashboard:~} \> \> \texttt{\href{https://hafiscal.econ-ark.org}{https://hafiscal.econ-ark.org}} \\
+      \texttt{~~~~~~~~~~~~~~~~~~~~~~~} \= \= \\
+      \texttt{~~~~GitHub~Repo:~~~~~~~} \> \> \texttt{\href{https://github.com/Calbafa/calbafa606}{https://github.com/Calbafa/calbafa606}} \\
+      \texttt{~~~~~~~~~~~~~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/Calbafa/calbafa606/blob/main/MexicoMP.pdf}{MexicoMP.pdf}} \\
+      \texttt{~~~~~~~~~~~~~~~~~~~~~~~} \> \> \\
     \end{tabbing}
-    %  \end{center}
-  } % end \parbox{\textwidth}
+  } % end \parbox
 \end{footnotesize}
 \vspace{-0.3\baselineskip}
 
-\centerline{Forthcoming, \textit{Quantitative Economics}}
+\centerline{Draft (REMARK) — Repository: \texttt{calbafa606}}
 \vspace{-0.3\baselineskip}
 
 \begin{authorsinfo}
-  \noindent \name{\href{https://www.econ2.jhu.edu/people/ccarroll}{Carroll: Department of Economics, Johns Hopkins University}, \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, and \href{https://nber.org}{NBER}}. \newline
-  \name{Crawley: Federal Reserve Board, \href{mailto:edmund.s.crawley@frb.gov}{\texttt{edmund.s.crawley@frb.gov}} } \newline
-  \name{Du: Johns Hopkins University, \href{mailto:wdu9@jhu.edu}{\texttt{wdu9@jhu.edu}} } \newline
-  \name{Frankovic: Deutsche Bundesbank, \href{mailto:ivan.frankovic@bundesbank.de}{\texttt{ivan.frankovic@bundesbank.de}}} \newline
-  \name{Tretvoll: Statistics Norway and HOFIMAR at BI Norwegian Business School, \href{mailto:Hakon.Tretvoll@ssb.no}{\texttt{Hakon.Tretvoll@ssb.no}}}
+  \noindent \name{Carlos Alba: Department of Economics, Johns Hopkins University. \href{mailto:calbafa1@jh.edu}{\texttt{calbafa1@jh.edu}}. GitHub: \texttt{Calbafa}.}
 \end{authorsinfo}
 
 \pagenumbering{gobble} % Prevent numbering for pages including the TOC and title page
@@ -79,62 +64,12 @@
 }%
 
 \whenintegrated{\label{funding-info}} % integrated doc: SST for labels
-%\begin{verbatimwrite}{\latexroot/Subfiles/thanks.vrb}
 \vspace{0.3\baselineskip}
 \begin{minipage}{\textwidth}
-  \footnotesize The views expressed in this paper are those of the authors and do not necessarily represent those of the Federal Reserve Board, the Deutsche Bundesbank and the Eurosystem, or Statistics Norway. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No.\ 851891) and from the Research Council of Norway (grant No.\ 326419).
-
-  %\input{acknowledgments-snippets.tex}
-  \input{../@local/acknowledgments.texinput}
+  \footnotesize We thank Marco Bassetto, Laurence Ball, Francesco Bianchi, Christopher Carroll, Stelios Fourakis, Raul Ibarra, David Rappoport, Jonathan Wright, as well as participants at the Macro/Finance Seminar at Johns Hopkins University, for helpful comments and suggestions. The views expressed in this paper are those of the author and do not necessarily reflect those of Johns Hopkins University.
 \end{minipage}
 
-% The authors would like to thank workshop audiences at \input{\latexroot/Subfiles/thanks-talks_CDC},%
-% \thanksInput{thanks-talks_DuW}\thanksInput{thanks-talks_EC}\thanksInput{thanks-talks_HT}\thanksInput{thanks-talks_IF}%
-%  for valuable feedback on the paper during presentations.  We would also like to thank  \input{\latexroot/Subfiles/thanks-persons_CDC},%
-% \thanksInput{thanks-persons_DuW}%
-% \thanksInput{thanks-persons_EC}%
-% \thanksInput{thanks-persons_HT}%\IfFileExistsAndNotEmpty{\latexroot/Subfiles/thanks-persons_IF}{ and }{}%
-% \thanksInput{thanks-persons_IF}%
-% for insightful comments on drafts of the paper.
-%\end{verbatimwrite}
-%\input{\latexroot/Subfiles/thanks.vrb}
-
-% \ifthenelse{\boolean{Web}}{
-% }{
-%   \begin{minipage}{0.9\textwidth}
-%     \footnotesize The views expressed in this paper are those of the authors and do not necessarily represent those of the Federal Reserve Board, the Deutsche Bundesbank and the Eurosystem, or Statistics Norway. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No.\ 851891).
-% The authors would like to thank workshop audiences at \input{\latexroot/Subfiles/thanks-talks_CDC},%
-% \thanksInput{thanks-talks_DuW}%
-% \thanksInput{thanks-talks_EC}%
-% \thanksInput{thanks-talks_HT}%
-% \IfFileExistsAndNotEmpty{\latexroot/Subfiles/thanks-talks_IF}{ and }{}%
-% \thanksInput{thanks-talks_IF}%
-%  for valuable feedback on the paper during presentations.  We would also like to thank  \input{\latexroot/Subfiles/thanks-persons_CDC},%
-% \thanksInput{thanks-persons_DuW}%
-% \thanksInput{thanks-persons_EC}%
-% \thanksInput{thanks-persons_HT}\IfFileExistsAndNotEmpty{\latexroot/Subfiles/thanks-persons_IF}{ and }{}%
-% \thanksInput{thanks-persons_IF}%
-% for insightful comments on drafts of the paper.
-
-%   \end{minipage}
-% }
-
 \titlepagefinish
-
-\smartbib
-
-\end{document}
-
-% \medskip\medskip
-% \begin{minipage}{0.9\textwidth}
-%   \listoffigures
-% \end{minipage}
-%
-% \medskip\medskip
-% \begin{minipage}{0.9\textwidth}
-%   \listoftables
-% \end{minipage}
-} % {Web}
 
 % Do not include appendix figures and tables in ToC unless for Web version
 \pdfonly{

@@ -16,226 +16,112 @@
   \input{\latexroot/._relpath-to-latexroot.ltx}%  % Resets \latexroot and reloads all paths
 }
 
-\section{Model}\whenintegrated{\label{model}}
+\section{High-Frequency Identification of MP, RN, and CBI Shocks}\whenintegrated{\label{model}}
 \whenintegrated{\label{sec:model}} % integrated doc: SST for labels
 
-Consumers differ by their level of education and, within education group, by subjective discount factors (calibrated to match the within-group distribution of liquid wealth). We first describe each kind of consumer's problem, given an income process with permanent and transitory shocks calibrated to their type, as well as type-specific shocks to employment. The next step describes the arrival of a recession and the policies we study as potential fiscal policy responses. The last section discusses an extension incorporating aggregate demand effects that induce feedback from aggregate consumption to income and (via the marginal propensity to consume) back to consumption, amplifying the effect of a recession when it occurs.
+This section outlines the construction of interest rate surprises and the identification strategy used to isolate pure MP, RN, and CBI shocks in Mexico. Our approach closely follows the framework of \hyperlink{Jarociński and Karadi (2025)}{Jarociński and Karadi (2025)} and proceeds in three stages. We begin by constructing target-rate and FG surprises from high-frequency changes in interest rate swaps around monetary policy announcements. In the spirit of \hyperlink{Bauer and Swanson (2023a, 2023b)}{Bauer and Swanson (2023a, 2023b)}, we then regress each policy surprise on a set of macroeconomic and financial variables observable to market participants prior to the announcement. Finally, we combine the fitted and residual components obtained from these regressions, together with equity-price surprises, to identify the aforementioned shocks using sign and magnitude restrictions.
 
-A consumer $i$ has education $e(i)$ and a subjective discount factor $\beta_i$. The consumer faces a stochastic income stream, $\mathbf{y}_{i,t}$, and chooses to consume a fraction of that income when it arrives---the `splurge', described in the introduction.\footnote{One attractive feature of the splurge assumption is that it is also consistent with evidence from~\cite{ganongConsumer2019}, that spending drops sharply following the large and predictable drop in income after the exhaustion of unemployment benefits; see Section~\ref{sec:nonTargetedMoments}.} With what is left over, the consumer chooses to optimize consumption without regard to the fraction that was already spent. Therefore, consumption each period for consumer $i$ can be written as in \eqref{eq:model}:
-\begin{verbatimwrite}{\eqns/splurge.ltx}
-  \begin{equation}
-    \begin{gathered}
-      \begin{aligned}
-        \mathbf{c}_{i,t} & = \mathbf{c}_{sp,i,t} + \mathbf{c}_{opt,i,t}, \whenintegrated{\label{eq:model}} % integrated doc: SST for labels
-      \end{aligned}
-    \end{gathered}
-  \end{equation}
-\end{verbatimwrite}
-\input{\eqns/splurge.ltx}
-{\noindent}where $\mathbf{c}_{i,t}$ is total consumption, $\mathbf{c}_{sp,i,t}$ is the splurge consumption, and $\mathbf{c}_{opt,i,t}$ is the consumer's optimal choice of consumption after splurging.
-Splurge consumption is simply a fraction of income, as shown in \eqref{eq:splurge}:
+
+\subsection{Constructing Target-Rate and FG Surprises}
+
+Following \hyperlink{Andrade and Ferroni (2021)}{Andrade and Ferroni (2021)}, \hyperlink{Solis (2023a)}{Solís (2023a, 2023b)}, and \hyperlink{Bolhuis et al. (2024)}{Bolhuis et al. (2024)}, we construct monetary policy surprises using high-frequency changes in interest rate swaps around monetary policy announcements. These changes are commonly interpreted as proxying for revisions in market expectations about both the current stance of monetary policy and its expected near-term path.\footnote{The Mexican swap market references the 28-day interbank rate (TIIE-28), which is closely tied to the policy rate and serves as a benchmark for short-term bank lending.} Specifically, we use interest rate swaps with maturities of 1, 3, 6, 9, and 12 months across the short end of the yield curve. Given the lack of intraday data, high-frequency changes in swap rates are measured as close-to-close movements from the trading day preceding the announcement to the day of the announcement. This approach is standard in the literature on EMEs (see \hyperlink{Bolhuis et al. (2024)}{Bolhuis et al. (2024)}, \hyperlink{Witheridge (2024)}{Witheridge (2024)}, \hyperlink{Gomes et al. (2023)}{Gomes et al. (2023)}, and \hyperlink{Aruoba et al. (2021)}{Aruoba et al. (2021)}). Our sample includes 214 scheduled monetary policy announcements over the period January~2002 to December~2024. The starting date reflects the availability of bond yield data used in the estimations and closely coincides with the adoption of an inflation-targeting regime by Banco de México in 2001.
+
+Following the standard approach of \hyperlink{Gürkaynak et al. (2005)}{Gürkaynak et al. (2005)}, we extract the first two principal components (PCs) of the high-frequency changes in swap rates around monetary policy announcements. We then rotate these components so that the second PC has zero loading on the 1-month swap rate. After this rotation, the first factor can be interpreted as reflecting unexpected changes in the current policy rate—closely tracked by the 1-month swap rate—and we therefore label it the \emph{target-rate surprise}. The second factor captures revisions to the expected near-term policy path, that is, movements in longer-maturity swap rates that are orthogonal to changes in the current policy rate, and we refer to it as the \emph{FG surprise}. For comparability and ease of interpretation, both surprises are rescaled so that the target-rate surprise moves one-for-one with changes in the 1-month swap rate, while the FG surprise affects the 12-month swap rate by the same magnitude as the target-rate surprise.
+
+\subsection{Decomposing Monetary Policy Surprises into Systematic and Residual Components}
+
+In this section, we decompose the target-rate and FG surprises into two components: one that co-moves with publicly available information prior to the announcement, and a residual component orthogonal to this information set. This decomposition follows the logic of 
+\hyperlink{Bauer and Swanson (2023a, 2023b)}{Bauer and Swanson (2023a, 2023b)}, who show that interest rate surprises may reflect not only exogenous policy shocks but also systematic responses of the central bank to economic news that were already observable to market participants, particularly when expectations about the policy reaction function are imperfect.
+
+Formally, for each policy announcement $t$, we estimate
 \begin{equation}
-  \begin{gathered}
-    \begin{aligned}
-      \mathbf{c}_{sp,i,t} = \varsigma \mathbf{y}_{i,t},
-      \whenintegrated{\label{eq:splurge}} % integrated doc: SST for labels
-    \end{aligned}
-  \end{gathered}
+mps_t = \alpha + X_{t-}'\beta + u_t,
 \end{equation}
-% RAG_METADATA: code_location=AggFiscalModel.py:getIncome()
-% RAG_METADATA: paper_reference=Section 2.1, Eq. (2)
-% RAG_METADATA: related_equations=eq:model
-% RAG_METADATA: equation_type=income_equation
-% RAG_METADATA: domain=consumption
-% RAG_METADATA: parameters=ς=0.249 (estimated)
-while the optimized portion of consumption is chosen to maximize the perpetual-youth lifetime expected-utility-maximizing consumption, where $D$ is the death probability:
-\begin{equation}
-  \begin{gathered}
-    \begin{aligned}
-      \sum_{t=0}^{\infty}\beta_i^t {(1-D)}^t \mathbb{E}_0 u(\mathbf{c}_{opt,i,t}),
-      \whenintegrated{\label{eq:utility}} % integrated doc: SST for labels
-    \end{aligned}
-  \end{gathered}
-\end{equation}
-% RAG_METADATA: paper_reference=Section 2.1
-% RAG_METADATA: related_equations=eq:model,eq:bellman
-% RAG_METADATA: equation_type=objective_function
-% RAG_METADATA: domain=optimization
-% RAG_METADATA: parameters=β=discount factor, D=death probability
-We use a standard CRRA (constant relative risk aversion) utility function, so $u(c) = c^{1-\gamma}/(1-\gamma)$ for $\gamma \neq 1$ and $u(c) = \log(c)$ for $\gamma=1$, where $\gamma$ is the coefficient of relative risk aversion.
-The optimization is subject to the budget constraint \eqref{eq:budget}, given existing market resources $\mathbf{m}_{i,t}$ and income state, and a no-borrowing constraint:
-\begin{equation}
-  \begin{gathered}
-    \begin{aligned}
-      \mathbf{a}_{i,t}   & = \mathbf{m}_{i,t} - \mathbf{c}_{i,t},     \\
-      \mathbf{m}_{i,t+1} & = R \mathbf{a}_{i,t} + \mathbf{y}_{i,t+1}, \\
-      \mathbf{a}_{i,t}   & \geq 0,
-      \whenintegrated{\label{eq:budget}} % integrated doc: SST for labels
-    \end{aligned}
-  \end{gathered}
-\end{equation}
-% RAG_METADATA: code_location=EstimAggFiscalModel.py
-% RAG_METADATA: paper_reference=Section 2.1
-% RAG_METADATA: related_equations=eq:model,eq:income
-% RAG_METADATA: equation_type=constraint_equation
-% RAG_METADATA: domain=budget_constraint
-% RAG_METADATA: parameters=R=gross interest factor
-where $R$ is the gross interest factor for accumulated assets $\mathbf{a}_{i,t}$, and $\mathbf{y}_{i,t+1}$ is determined by \eqref{eq:income}.
+where $mps_t$ denotes either the target-rate or the FG surprise, $X_{t-}$ collects macroeconomic and financial variables observable to market participants before the announcement (as indicated by the time subscript $t-$), and $u_t$ is the residual. We define the fitted component as $\text{FIT}_t \equiv \widehat{\alpha} + X_{t-}'\widehat{\beta}$ and the residual component as $\text{RES}_t \equiv \widehat{u}_t$, where by construction $\text{RES}_t$ is orthogonal to all variables included in $X_{t-}$. The fitted component captures the portion of the surprise that is explained by the pre-announcement information set and may be interpreted as reflecting revisions in expectations about the systematic policy response to news. The residual component isolates the unpredictable part of the surprise, which is more closely related to deviations from the systematic policy rule.
 
-\subsection{The income process}\whenintegrated{\label{the-income-process}}
+Empirical studies, including \hyperlink{Swanson (2024)}{Swanson (2024)} and \hyperlink{Bauer and Swanson (2023a, 2023b)}{Bauer and Swanson (2023a, 2023b)}, document a range of macroeconomic and financial variables that help predict monetary policy surprises. We incorporate several of these variables into $X_{t-}$, while also including a small set of additional variables that may be particularly relevant for an EME such as Mexico. Given the strong real and financial linkages between the Mexican and U.S.\ economies, $X_{t-}$ contains both domestic and external variables.\footnote{Mexico is a small open economy with strong real and financial linkages to the United States, often viewed as the “center country” in studies of small open economies. Roughly 80\% of Mexican exports are directed to the U.S., and a large share of foreign direct investment originates there. Prior work documents close trade and financial integration between the two economies, including substantial co-movement in term premia and short-term interest rates [see, for instance, \hyperlink{Fink (2015)}{Fink and Schüler (2015)} and \hyperlink{Carrillo et al. (2020)}{Carrillo et al. (2020)}].}
 
-Consumers face a stochastic income process with permanent and transitory shocks to income, along with unemployment shocks.
-In normal times, consumers who become unemployed receive unemployment benefits for two quarters.
-Permanent income evolves according to \eqref{eq:perm_income}:
-\begin{equation}
-  \begin{gathered}
-    \begin{aligned}
-      \mathbf{p}_{i,t+1} & = \psi_{i,t+1}\Gamma_{e(i)}\mathbf{p}_{i,t},
-      \whenintegrated{\label{eq:perm_income}} % integrated doc: SST for labels
-    \end{aligned}
-  \end{gathered}
-\end{equation}
-% RAG_METADATA: code_location=EstimAggFiscalModel.py:getIncome()
-% RAG_METADATA: paper_reference=Section 2.2
-% RAG_METADATA: related_equations=eq:income
-% RAG_METADATA: equation_type=income_equation
-% RAG_METADATA: domain=income
-% RAG_METADATA: parameters=ψ=permanent income shock, Γ=growth rate by education
-where $\psi_{i,t+1}$ is the shock to permanent income and $\Gamma_{e(i)}$ is the average growth rate of income for the consumer's education group $e(i)$.\footnote{We model the rate of growth for permanent income for each education group and keep this rate unchanged during periods of unemployment.
-  There is evidence, e.g.\ in~\cite{davis-recessions-2011}, that unemployment, especially in a recession, leads to permanent income loss.
-  This finding could be added to the model---see~\cite{carroll2020modeling} for an example---but is not material to the evaluation of stimulus payments here so we have chosen to keep the model simple.
-} The realized growth rate of permanent income for consumer $i$ is thus $\hat{\Gamma}_{i,t+1} = \psi_{i,t+1} \Gamma_{e(i)}$.
-The shock to permanent income is normally distributed with variance $\sigma_{\psi}^2$.
+To capture domestic financial conditions, we include the log change in the nominal peso--U.S.\ dollar exchange rate and changes in the volatility implied by one-month options on the Mexican peso, both measured from three months prior to the announcement to the day before the announcement.\footnote{The volatility implied by one-month options on the Mexican peso reflects market expectations about near-term exchange rate uncertainty. This measure is widely followed by market participants and is regularly discussed in Banco de México’s quarterly inflation reports.} In addition, we consider three-month changes in the interbank funding rate and in the two-year Mexican government bond yield.\footnote{The interbank funding rate captures short-term conditions in the domestic money market and is closely tied to the monetary policy rate.}  To capture domestic macroeconomic conditions, we include log changes in the Overall Indicator of Economic Activity (IGAE, by its Spanish acronym) and in the core Consumer Price Index (CPI), measured from six months prior to the most recent data release available before the policy announcement.\footnotemark
+\footnotetext{The IGAE follows the methodology and conceptual framework of the national accounts. The correlation between IGAE and GDP, both measured in quarterly percentage changes, is 0.99. The IGAE is subject to revisions, so the data available to market participants and the central bank at a given point in time may differ from the final revised values released by the statistical office. Although the use of real-time data would be desirable, such data are unavailable for Mexican output. We therefore rely on revised data in our estimations.}\textsuperscript{,}\footnotemark
+\footnotetext{ IGAE is released with a delay of approximately seven to eight weeks (approximated by 42 trading days), while consumer prices are typically released with a lag of about two weeks (approximated by 10 trading days).}
 
-The actual income a consumer receives, given the permanent income from \eqref{eq:perm_income}, will be subject to the individual's employment status as well as transitory shocks, $\xi_{i,t}$, as shown in \eqref{eq:income}:
-\begin{equation}
-  \begin{gathered}
-    \begin{aligned}
-      \mathbf{y}_{i,t} =   \begin{cases}
-                             \xi_{i,t}\mathbf{p}_{i,t},  & \text{if employed}                    \\
-                             \rho_b \mathbf{p}_{i,t},    & \text{if unemployed with benefits}    \\
-                             \rho_{nb} \mathbf{p}_{i,t}, & \text{if unemployed without benefits}
-                           \end{cases}
-      \whenintegrated{\label{eq:income}} % integrated doc: SST for labels
-    \end{aligned}
-  \end{gathered}
-\end{equation}
-% RAG_METADATA: code_location=EstimAggFiscalModel.py:getIncome()
-% RAG_METADATA: paper_reference=Section 2.2
-% RAG_METADATA: related_equations=eq:perm_income,eq:budget
-% RAG_METADATA: equation_type=income_equation
-% RAG_METADATA: domain=income
-% RAG_METADATA: parameters=ξ=transitory shock, ρ_b=benefit replacement rate, ρ_nb=no-benefit replacement rate
-where $\xi_{i,t}$ is normally distributed with variance $\sigma_{\xi}^2$, and $\rho_b$ and $\rho_{nb}$ are the replacement rates for an unemployed consumer who is or is not eligible for unemployment benefits, respectively.
+As external financial variables, we include log changes in the Standard \& Poor’s 500 stock index, changes in two-year and ten-year U.S.\ Treasury yields, and the log change in Brent crude oil prices, all measured over a three-month horizon prior to the policy announcement. For external macroeconomic conditions, we consider log changes in U.S.\ industrial production and in the U.S.\ Consumer Price Index, measured from six months prior to the most recent data release available before the policy announcement. Finally, following \hyperlink{Miranda-Agrippino and Ricco (2021)}{Miranda-Agrippino and Ricco (2021)} and \hyperlink{Swanson (2024)}{Swanson (2024)}, we include one lag of the dependent variable to account for potential serial correlation in monetary policy surprises.
 
-A Markov transition matrix $\Pi$ generates the unemployment dynamics where the number of states is given by $2$ plus the number of periods that unemployment benefits last.
-An employed consumer can continue being employed or move to being unemployed with benefits.\footnote{That is, as long as we assume that there is at least one period of unemployment benefits.} The first row of $\Pi$ is thus given by $[1-\pi_{eu}^{e(i)}, \pi_{eu}^{e(i)}, \mathbf{0}]$, where $\pi_{eu}^{e(i)}$ indicates the probability of becoming unemployed from an employed state and $\mathbf{0}$ is a vector of zeros of the appropriate length.
-Note that we allow this probability to depend on the education group of consumer $i$ and will calibrate this parameter to match the average unemployment rate for each education group.
-Upon becoming unemployed, all consumers face a probability $\pi_{ue}$ of transitioning back into employment and a probability $1-\pi_{ue}$ of remaining unemployed with one less period of remaining benefits.
-After transitioning into the unemployment state where the consumer is no longer eligible for benefits, the consumer will remain in this state until becoming employed again.
-The probability of becoming employed is thus the same for each of the unemployment states and education groups.
 
-\subsection{Recessions and policies}\whenintegrated{\label{recessions-and-policies}}
-\whenintegrated{\label{sec:recessions}} % integrated doc: SST for labels
-We model the arrival of a recession, and the government policy response to it, as an unpredictable event---an MIT shock.
-We have four types of shocks: one representing a recession and one for each of the three different policy responses we consider.
-The policy responses are usually modeled as in addition to the recession, but we also consider a counterfactual in which the policy response occurs without a recession in order to understand the welfare effects of the policy.
+\hyperlink{Table 1}{Table~1} reports the results from projecting target-rate and FG surprises onto the set of macroeconomic and financial variables described above, using the full sample from January 2002 to December 2024.\footnote{Monetary policy surprises, changes in interest rates, and variations in implied exchange rate volatility are expressed in basis points. Changes in real activity, consumer prices, oil prices, asset prices, and the exchange rate are measured as log differences multiplied by 100. Three-month windows correspond to 65 trading days. U.S.\ consumer prices and U.S.\ industrial production are typically released with a lag of about two weeks.} Results for target-rate surprises are reported in the first column, while those for FG surprises are shown in the second column. Standard errors (in parentheses) are computed using heteroskedasticity- and autocorrelation-consistent (HAC) estimators. As can be seen, the set of regressors explains a non-negligible share of the variation in monetary policy surprises, with $R^2$ values of approximately 22\% for target-rate surprises and 15\% for FG surprises, broadly in line with estimates reported in the related literature.\footnotemark
+\footnotetext{We also estimate LASSO-based projections as a complementary diagnostic and robustness exercise (see Table AX in the Appendix). For target-rate surprises, the predictors selected by LASSO broadly align with those included in the baseline information set, whereas for FG surprises the regularization procedure selects a substantially smaller subset of variables. As shown in Figures AX and AY in the Appendix, impulse responses based on LASSO-selected controls remain broadly consistent with our baseline results but exhibit a weaker separation between pure MP and RN shocks, making the identification less sharp. For this reason, we do not adopt the LASSO-based specification as our baseline empirical model.}\textsuperscript{,}\footnotemark
+\footnotetext{We also consider an extended specification that augments the projection with a broader set of macro-financial controls. The fitted and residual components remain largely unchanged, and the resulting VAR impulse responses are very similar to those obtained under the baseline specification (see Table BX and Figures BX and BY in the Appendix).}
 
-\paragraph{Recession.} At the onset of a recession, several changes occur.
-First, the unemployment rate for each education group doubles: Those who would have been unemployed in the absence of a recession are still unemployed, and an additional number of consumers move from employment to unemployment.
-Second, conditional on the recession continuing, the employment transition matrix is adjusted so that unemployment remains at the new high level and the expected length of time for an unemployment spell increases. In our baseline calibration, discussed in detail in section~\ref{sec:calib}, we set the expected length of an unemployment spell to one and a half quarters in normal times, and this length increases to four quarters in a recession.
-Third, the end of the recession occurs as a Bernoulli process calibrated for an average length of recession of six quarters.
-Finally, at the end of a recession, the employment transition matrix switches back to its original probabilities, and, as a result, the unemployment rate trends down over time, back to its steady-state level. The details of how certain model parameters change in a recession are presented in section~\ref{sec:calibRecession}.
+\begin{table}[t]
+\centering
+\caption{Regressions of High-Frequency Monetary Policy Surprises on Macroeconomic and Financial News}
 
-\paragraph{Policies.} The policies we consider in response to a recession are inspired by the Economic Stimulus Act of 2008 and the Tax Relief, Unemployment Insurance Reauthorization, and Job Creation Act of 2010.
-The former included means tested stimulus checks in the form of tax rebates, and the latter included both an extension of unemployment benefits and a tax cut.
-Based on these examples we therefore consider the following stimulus policies in our framework:
+\input{\latexroot/Tables/Table1_Mexico.tex}
 
-\paragraph{1.
-  Stimulus check.} In this policy response, the government sends money to every consumer that directly increases the household's market resources.
-The checks are means-tested depending on permanent income.
-A check for \$1,200 is sent to every household with permanent income less than \$100,000, and this amount is then linearly reduced to zero for households with a permanent income greater than \$150,000.
-Similar policies were implemented in the U.S.
-in 2001, 2008, and during the pandemic.
-
-\paragraph{2.
-  Extended unemployment benefits.} In this policy response, unemployment benefits are extended from two quarters to four quarters.
-That is, those who become unemployed at the start of the recession, or who were already unemployed, will receive unemployment benefits for up to four quarters (including quarters leading up to the recession).
-Those who become unemployed one quarter into the recession will receive up to three quarters of unemployment benefits.
-These extended unemployment benefits will occur regardless of whether the recession ends, and no further extensions are granted if the recession continues.
-This policy reflects temporary changes made to unemployment benefits in the U.S.
-following the great recession.
-
-\paragraph{3.
-  Payroll tax cut.} In this policy response, employee-side payroll taxes are reduced for a period of eight quarters.\footnote{Although payroll taxes are paid by both the employer and the employee, the payroll tax cuts in the U.S.
-  have been applied only the employee side.} During this period, which continues irrespective of whether the recession continues or ends, employed consumers' income is increased by 2 percent.
-The income of the unemployed is unchanged by this policy.
-Households also believe there is a 50-50 chance that the tax cut will be extended by another two years if the recession has not ended when the first tax cut expires.\footnote{The belief that the payroll tax cut may be extended makes little difference to the results.} The payroll tax cut introduced in the U.S.
-in 2010 was itself an extension of previously implemented cuts and had a two-year horizon.
-
-\paragraph{Financing the policies.} Some work in the HA macro literature has shown that if taxes are raised immediately to offset any fiscal stimulus, results can be very different than they would be if, as occurs in reality, recessionary policies are debt financed.
-However, typical fiscal rules assume that any increase in debt gets financed over a long interval.
-Accordingly, almost all of the effects of any particular fiscal rule will be  similar for each of our policies so long as the great majority of the debt is repaid after the short recessionary period that is our main focus.
-
-To keep our analysis as simple as possible, we do not model the debt repayment.
-Any of a variety of fiscal rules could be imposed for the period following our short period of interest, but we did not want to choose any particular fiscal rule in order to avoid making a choice that has little consequence for our key question.
-Advocates of alternative fiscal rules likely already have intuitions about how such rules' economic consequences differ, but those consequences---under our partial equilibrium analysis---will be similar for all three policies we consider.
-Alternative choices of fiscal rules will therefore not affect the ranking of policies that is our principal concern.\footnote{In our general equilibrium analysis in section~\ref{sec:hank}, we apply a fiscal rule that assumes debt is slowly paid back over time.}
-
-\subsection{Aggregate demand effects}\whenintegrated{\label{aggregate-demand-effects}}
-\whenintegrated{\label{sec:ADeffects}} % integrated doc: SST for labels
-
-Our baseline model is a partial equilibrium model that does not include any feedback from aggregate consumption to income.
-In an extension to the model, we add aggregate demand effects during the recession.
-The motivation for this specification comes from the idea that spending in an economy with substantial slack and in which the central bank is unable to prevent a recession will result in higher utilization rates and greater output.
-By contrast, government spending in an economy running at potential with an active monetary policy will not succeed in increasing output.
-The recent inflation experience of the U.S.
-provides some evidence that output responds highly non-linearly to aggregate demand.
-This idea is explored in a recent revival of research into non-linear Phillips curves, such as~\cite{benigno2023baaack} and~\cite{blanco2024nonlinear}.
-
-With this extension, any changes in consumption away from the steady-state consumption level feed back into labor income.
-Aggregate demand effects are evaluated as in \eqref{eq:ad_feedback}:
-\begin{equation}
-  \begin{gathered}
-    \begin{aligned}
-      AD(C_t) =   \begin{cases}{\Big(C_t/\tilde{C}\Big)}^\kappa, & \text{if in a recession} \\
-             1,                                & \text{otherwise} ,
-                  \end{cases}
-      \whenintegrated{\label{eq:ad_feedback}} % integrated doc: SST for labels
-    \end{aligned}
-  \end{gathered}
-\end{equation}
-% RAG_METADATA: code_location=AggFiscalMAIN.py:computeAD()
-% RAG_METADATA: paper_reference=Section 4.5
-% RAG_METADATA: related_equations=eq:aggregate
-% RAG_METADATA: equation_type=policy_equation
-% RAG_METADATA: domain=aggregate_demand
-% RAG_METADATA: parameters=κ=aggregate demand elasticity, C̃=steady-state consumption
-where $\tilde{C}$ is the level of consumption in the steady state.
-Idiosyncratic income in the aggregate demand extension is multiplied by the aggregate demand function from \eqref{eq:ad_feedback}, as shown in \eqref{eq:ad_income}:
-\begin{equation}
-  \begin{gathered}
-    \begin{aligned}
-      \mathbf{y}_{AD,i,t} = AD(C_t)\mathbf{y}_{i,t},
-      \whenintegrated{\label{eq:ad_income}} % integrated doc: SST for labels
-    \end{aligned}
-  \end{gathered}
-\end{equation}
-% RAG_METADATA: code_location=AggFiscalMAIN.py:computeAD()
-% RAG_METADATA: paper_reference=Section 4.5
-% RAG_METADATA: related_equations=eq:ad_feedback,eq:income,eq:budget
-% RAG_METADATA: equation_type=policy_equation
-% RAG_METADATA: domain=aggregate_demand
-% RAG_METADATA: description=Applies aggregate demand feedback to individual income
-The series $\mathbf{y}_{AD,i,t}$ from \eqref{eq:ad_income} is then used for each consumer's budget constraint \eqref{eq:budget}.
-
-% Smart bibliography: Only include bibliography if standalone AND has citations
-\smartbib
-
-\pdfonly{
-  % execute this version if compiling with pdflatex
-  \captionsetup[figure]{list=no}
-  \captionsetup[table]{list=no}
+\begin{flushleft}
+\footnotesize
+\parbox{0.95\textwidth}{
+\textit{Notes}: This table reports coefficient estimates from regressions of target-rate and forward guidance surprises on macroeconomic and financial news released prior to the monetary policy announcement. Standard errors (in parentheses) are heteroskedasticity- and autocorrelation-consistent (HAC), computed using a Newey--West estimator. $^{*}$, $^{**}$, and $^{***}$ denote significance at the 10\%, 5\%, and 1\% levels, respectively.
 }
+\end{flushleft}
+
+\end{table}
+
+These results indicate that monetary policy surprises appear to contain a systematic component that co-moves with publicly available economic information observed prior to policy announcements. While the underlying economic mechanisms driving this relationship are beyond the scope of this exercise, its presence is consistent with the possibility that market expectations about the systematic policy response are imperfect. For the VAR analysis, however, the precise interpretation of this correlation is of secondary importance, as emphasized by \hyperlink{Swanson (2024)}{Swanson (2024)}. What matters is the empirical regularity that monetary policy surprises are not fully orthogonal to pre-announcement economic and financial conditions. As we show below, failing to account for this feature leads to impulse response functions that display puzzling or potentially misleading dynamics in response to an MP shock.
+
+In the next section, we exploit the joint high-frequency behavior of the fitted and residual components of monetary policy surprises together with equity-price surprises to identify pure MP, RN, and CBI shocks through sign and magnitude restrictions.
+
+
+
+\subsection{Identifying MP, RN, and CBI Shocks with Sign and Magnitude Restrictions}
+
+Following \hyperlink{Jarociński and Karadi (2025)}{Jarociński and Karadi (2025)}, we combine the previously obtained fitted and residual components with equity-price surprises to identify pure MP, RN, and CBI shocks using sign and magnitude restrictions. The identification is implemented separately for target-rate and FG surprises. In each case, we use the corresponding fitted and residual components—denoted by $(\text{FIT}^{TR}, \text{RES}^{TR})$ for target-rate surprises and $(\text{FIT}^{FG}, \text{RES}^{FG})$ for FG surprises—together with a common equity-price surprise measure, $\text{SP}$. The latter is constructed as the log difference of the Mexican Stock Market Index (IPC) between the trading day preceding the policy announcement and the day of the announcement.
+
+
+Our identification strategy assumes that, within a daily window around policy announcements, interest rate and equity-price surprises are predominantly driven by three structural disturbances—pure MP, RN, and CBI shocks.\footnote{This assumption is stronger than in studies for AEs that rely on narrow intraday windows surrounding policy announcements. Nevertheless, intraday financial data are typically unavailable for EMEs, and much of the literature therefore relies on daily windows for this type of analysis. One exception is \hyperlink{Solis (2023a)}{Solís (2023a, 2023b)}, who employs intraday data on interest rate swaps for Mexico. However, that dataset covers a shorter sample period starting in 2011 and does not include intraday equity-price data, which are central to our identification strategy.
+As emphasized by \hyperlink{Solis (2023a)}{Solís (2023a, 2023b)}, measurement error in daily swap-rate changes appears to be limited, as the correlation between intraday and daily changes in swap rates is close to one. To further alleviate concerns that the equity-price surprise may partly reflect global financial developments unrelated to domestic monetary policy news, we orthogonalize our equity-price surprise with respect to contemporaneous changes in the S\&P~500 index as a robustness check. The results obtained using this orthogonalized measure are very similar to those reported in the baseline specification and are presented in Figure~BW in the Appendix.} In addition, we assume that each disturbance generates a distinct pattern of co-movement between interest rate and equity-price surprises.
+
+A \emph{\textbf{pure MP shock}} is characterized by a negative co-movement between the residual component of the interest rate surprise—either $\text{RES}^{TR}$ or $\text{RES}^{FG}$—and the stock price surprise. This pattern is consistent with an unexpected policy tightening that raises discount rates and lowers expected future cash flows, leading to an immediate decline in equity prices. When identification is based on target-rate surprises, we refer to this disturbance as a \emph{pure target-rate shock}; when based on FG surprises, as a \emph{pure FG shock}.
+
+An \emph{\textbf{RN shock}} is identified by a negative co-movement between the fitted component of the interest rate surprise—either $\text{FIT}^{TR}$ or $\text{FIT}^{FG}$—and the stock price surprise. This shock captures episodes in which the central bank responds more aggressively than markets anticipated to publicly available information that was already incorporated into expectations prior to the announcement. As a result, the main information revealed within the announcement window is the stronger-than-expected monetary policy response, which depresses equity prices through standard discount-rate and cash-flow channels.
+
+A \emph{\textbf{CBI shock}} is identified by a positive co-movement between the overall monetary policy surprise—defined as $\text{FIT}^{j}+\text{RES}^{j}$—and the equity-price surprise. This pattern may arise when the central bank reveals favorable new information about economic fundamentals while simultaneously tightening policy. In such cases, equity prices increase in response to improved growth prospects and higher expected future cash flows, despite the policy tightening.
+
+These assumptions are summarized by the following impact representation:
+\begin{equation}
+\begin{pmatrix}
+\text{RES}^{j} \\
+\text{FIT}^{j} \\
+\text{SP}
+\end{pmatrix}
+=
+\begin{pmatrix}
++ & c_{12} & c_{13} \\
+c_{21} & + & c_{23} \\
+- & - & +
+\end{pmatrix}
+\begin{pmatrix}
+\text{MP}^{j} \\
+\text{RN}^{j} \\
+\text{CBI}^{j}
+\end{pmatrix},
+\quad j \in \{\text{TR}, \text{FG}\},
+\end{equation}
+together with the restriction that the overall policy surprise (the sum of fitted and residual components) rises on impact after a favorable CBI shock:
+\begin{equation}
+\label{eq:cbi_policy_surprise}
+(c_{13}+c_{23}) > 0.
+\end{equation}
+
+Finally, we impose magnitude restrictions to ensure that the FIT--RES decomposition provides informative proxies for the MP and RN shocks:
+\begin{equation}
+\label{eq:mag_res_mp}
+|c_{12}| < c_{11},
+\end{equation}
+\begin{equation}
+\label{eq:mag_res_rn}
+|c_{21}| < c_{22}.
+\end{equation}
+Restriction \eqref{eq:mag_res_mp} ensures that the residual component loads more strongly on the MP shock than on the RN shock, while restriction \eqref{eq:mag_res_rn} ensures that the fitted component loads more strongly on the RN shock than on the MP shock. 
 
 \end{document}

@@ -17,6 +17,8 @@ for (1..5) {
 # Set PDF mode as default (use pdflatex, not latex/DVI)
 # This ensures all compilations produce PDF directly and can include PDF/PNG/JPG images
 $pdf_mode = 1;  # 1=pdflatex, 2=ps2pdf, 3=dvipdf, 4=lualatex, 5=xelatex
+# Make sure BibTeX can find econark.bst shipped with this repo
+$ENV{'BSTINPUTS'} = "$latexmkroot/\@resources/texlive/texmf-local/bibtex/bst:";
 
 
 # Load the circular crossrefs handler
