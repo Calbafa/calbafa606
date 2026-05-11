@@ -50,11 +50,11 @@ The paper is organized as modular subfiles:
 | `Subfiles/Intro.tex` | Introduction |
 | `Subfiles/literature.tex` | Related literature |
 | `Subfiles/Model.tex` | High-frequency identification of MP, RN, and CBI shocks |
-| `Subfiles/Parameterization.tex` | VAR model for a small open economy |
-| `Subfiles/Comparing-policies.tex` | Impulse response functions |
+| `Subfiles/VARModel.tex` | VAR model for a small open economy |
+| `Subfiles/ImpulseResponses.tex` | Impulse response functions |
 | `Subfiles/Conclusion.tex` | Conclusion |
-| `Subfiles/Appendix-HANK.tex` | Appendix A: Bayesian estimation details |
-| `Subfiles/Appendix-NoSplurge.tex` | Appendix B: Supplemental results and robustness checks |
+| `Subfiles/Appendix-BayesianEstimation.tex` | Appendix A: Bayesian estimation details |
+| `Subfiles/Appendix-Robustness.tex` | Appendix B: Supplemental results and robustness checks |
 
 ## Figures and Tables
 
@@ -112,11 +112,11 @@ calbafa606/
 │   ├── Intro.tex
 │   ├── literature.tex
 │   ├── Model.tex
-│   ├── Parameterization.tex
-│   ├── Comparing-policies.tex
+│   ├── VARModel.tex
+│   ├── ImpulseResponses.tex
 │   ├── Conclusion.tex
-│   ├── Appendix-HANK.tex
-│   └── Appendix-NoSplurge.tex
+│   ├── Appendix-BayesianEstimation.tex
+│   └── Appendix-Robustness.tex
 ├── Figures/                # Main figures (PDF)
 │   ├── Figure_1_Mex.pdf
 │   ├── Figure_2_Mex.pdf

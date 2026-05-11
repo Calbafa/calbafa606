@@ -1,7 +1,7 @@
-% HAFiscal local style file
-% For documentation on the HAFiscal project architecture, see @resources/
+% Local style file for calbafa606 (Mexico Monetary Policy project)
+% Adapted from the HAFiscal project template
 
-\ProvidesPackage{local}[2025/11/06 HAFiscal local configuration]
+\ProvidesPackage{local}[2026/05/11 calbafa606 local configuration]
 
 % INPUT PATH-TO-ROOT FIRST:
 % This defines \latexroot and \PathsToInputs macros
@@ -16,16 +16,6 @@
 %% PACKAGES NOT NEEDED FOR QE BUT RETAINED FOR LATEST/PUBLIC VARIANTS
 %% ═══════════════════════════════════════════════════════════════════════════
 %
-% Bisection testing (2025-11-05):
-% - local-qe.sty: Determined which packages QE submission doesn't need
-% - local.sty (2025-11-05): Bisection test of HAFiscal.tex compilation
-%
-% Results: Of the 7 packages previously in this section, only 1 is required:
-%   REQUIRED:     multirow (used in tables)
-%   NOT REQUIRED: amsfonts, inputenc, setspace, array, placeins, afterpage
-%
-% The 6 unnecessary packages have been removed. If future features require them,
-% they can be re-added with documentation of their specific use case.
 
 % Verbatim environments
 \usepackage{moreverb}             % Enhanced verbatim (provides verbatimwrite environment)
@@ -175,17 +165,14 @@
 
 
 
-\ProvidesPackage{local}[2025/09/01 HAFiscal local style package]
+\ProvidesPackage{local}[2026/05/11 calbafa606 local style package]
 
 % REMOVED: econark-ifsubfile package - using entrypoint-based detection instead
 % \usepackage{@resources/texlive/texmf-local/tex/latex/econark-ifsubfile}
 
-% Define a few objects that are unique to the HAFiscal paper
-\input{@local/owner} % Owned by llorracc (draft) or econ-ark (published) ?
+\input{@local/owner}
 
-%% DEVELOPMENT-SPECIFIC PACKAGES (not needed for QE submission)
-% The following packages are used for the full HAFiscal development system
-% For QE submissions, use local-qe.sty instead, which has a minimal package set
+%% DEVELOPMENT-SPECIFIC PACKAGES
 
 \usepackage{pdfsuppressruntime}        % Suppress PDF timestamps (development feature)
 \usepackage{ifthen}                    % Conditional compilation support
@@ -223,17 +210,12 @@
 \usepackage[authoryear]{natbib}        % Bibliography (different from QE setup)
 \usepackage{enumitem}                  % Enhanced lists
 % \usepackage{makecell}  % REMOVED: conflicts with econsocart.cls
-% \usepackage{soul}                    % REMOVED: Not used in HAFiscal.tex (only in Private/Submissions replies)
 % \sethlcolor{yellow}
 
-%% DEVELOPMENT-SPECIFIC CONSOLIDATED PACKAGES
-% The following packages are ONLY needed for HAFiscal development (not QE submission)
-% Basic packages (amsmath, graphicx, booktabs, etc.) have been moved to local-qe.sty
+%% ADDITIONAL PACKAGES
 \usepackage{graphicx}                  % Include graphics (explicitly loaded in local.sty)
 \usepackage{booktabs}                  % Professional table formatting (\toprule, \midrule, \addlinespace, etc.)
-% HAFiscal development system packages
-% REMOVED: catchfile - verified zero usage (20251001)
-\usepackage{econark-bibfilesfind}      % Originally from HAFiscal.tex - defines \bibfilesfound (development only)
+\usepackage{econark-bibfilesfind}      % Defines \bibfilesfound for bibliography detection
 
 % ═══════════════════════════════════════════════════════════════════════════
 % BIBLIOGRAPHY DETECTION: Main Document vs.\ Subfile Mode
@@ -273,11 +255,11 @@
   }%
 }{%
   % ─────────────────────────────────────────────────────────────────────────
-  % MAIN DOCUMENT MODE: Normal compilation of HAFiscal.tex
+  % MAIN DOCUMENT MODE: Normal compilation
   % ─────────────────────────────────────────────────────────────────────────
   % Use full bibliography detection that searches for:
   %   - \texname-Add-Refs.bib (additional manual references)
-  %   - \texname.bib (main bibliography, e.g., HAFiscal.bib)
+  %   - \texname.bib (main bibliography, e.g., calbafa606.bib)
   %   - system.bib (global reference database)
   % The \bibfilesfind command checks each file for existence and content.
   \bibfilesfind{\texname}%
@@ -290,12 +272,7 @@
 % Color package (required by pdforhtml - must load before pdforhtml)
 \usepackage{color}                     % Originally from Notes_Private/Section_calibration_estimation.tex - color support
 
-\usepackage{pdforhtml}                 % Originally from HAFiscal.tex - allow compile as pdf or html (development only)
-
-% Presentation and development-specific packages
-% \usepackage{econark}                   % Originally from HAFiscal-Slides.tex - econark LaTeX package (development only)
-% NOTE: Commented out - HAFiscal.tex uses \documentclass{econark}, so \usepackage{econark} is not needed
-% and econark.sty file appears to be broken (contains only a path string, not LaTeX code)
+\usepackage{pdforhtml}                 % Allow compile as pdf or html
 % CONDITIONAL SUBFIGURE PACKAGE - VERIFIED COMPATIBLE WITH BOTH CLASSES
 \usepackage{subcaption}                % Modern subfigure environment (tested with econark + econsocart)
 % Note: makecell not added - conflicts with econsocart.cls for QE submissions
