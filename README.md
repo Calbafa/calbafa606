@@ -132,7 +132,7 @@ calbafa606/
 ├── Figures/                # Main figures (PDF)
 │   ├── Figure_1_Mex.pdf
 │   ├── Figure_2_Mex.pdf
-│   └── Figures_Mex/        # Robustness check figures (56 PDFs)
+│   └── Figures_Mex/        # Robustness check figures (64 PDFs)
 ├── Tables/                 # LaTeX tables
 │   ├── Table_1_Mex.tex
 │   ├── Table_2_Mex.tex
