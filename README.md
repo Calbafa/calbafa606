@@ -74,6 +74,84 @@ Macroeconomic outcomes:
 
 ---
 
-## 📄 Paper Structure
+## Paper Structure
 
-Main LaTeX file:
+Main LaTeX file: `calbafa606.tex`
+
+The paper is organized as modular subfiles:
+
+| File | Content |
+|------|---------|
+| `Subfiles/MexicoMP-titlepage.tex` | Title page, abstract, and author information |
+| `Subfiles/Intro.tex` | Introduction |
+| `Subfiles/literature.tex` | Related literature |
+| `Subfiles/Model.tex` | High-frequency identification of MP, RN, and CBI shocks |
+| `Subfiles/Parameterization.tex` | VAR model for a small open economy |
+| `Subfiles/Comparing-policies.tex` | Impulse response functions |
+| `Subfiles/Conclusion.tex` | Conclusion |
+| `Subfiles/Appendix-HANK.tex` | Appendix A: Bayesian estimation |
+| `Subfiles/Appendix-NoSplurge.tex` | Appendix B: Supplemental results |
+
+---
+
+## Figures and Tables
+
+- **Main figures**: `Figures/Figure_1_Mex.pdf`, `Figures/Figure_2_Mex.pdf`
+- **Robustness figures**: `Figures/Figures_Mex/` (24 additional figures)
+- **Tables**: `Tables/Table_1_Mex.tex`, `Tables/Table_2_Mex.tex`, `Tables/Table_3_Mex.tex`
+
+---
+
+## Reproduction
+
+To reproduce the paper PDF:
+
+```bash
+bash reproduce.sh
+```
+
+This script compiles the LaTeX document. The empirical analysis (Bayesian VAR estimation, impulse response computation) was conducted in MATLAB, and its outputs (figures and tables) are included in the repository.
+
+---
+
+## Repository Structure
+
+```
+calbafa606/
+├── calbafa606.tex          # Main LaTeX document
+├── HAFiscal.bib            # Bibliography
+├── Subfiles/               # Paper sections (modular LaTeX subfiles)
+├── Figures/                # Main figures (PDF)
+│   └── Figures_Mex/        # Robustness check figures
+├── Tables/                 # LaTeX tables
+├── Code/                   # Empirical code
+│   └── Empirical/          # MATLAB/estimation scripts
+├── Data/                   # Data description
+├── REMARK.md               # REMARK metadata
+├── CITATION.cff            # Citation information
+├── reproduce.sh            # Reproduction script
+└── README.md               # This file
+```
+
+---
+
+## References
+
+- Jarociński, M. and Karadi, P. (2020). "Deconstructing Monetary Policy Surprises." *AEJ: Macroeconomics*.
+- Jarociński, M. and Karadi, P. (2025). "Central Bank Information Effects and Transitory Announcements." *American Economic Review*.
+- Bauer, M.D. and Swanson, E.T. (2023). "An Alternative Explanation for the 'Fed Information Effect'." *American Economic Review*.
+- Gürkaynak, R.S., Sack, B., and Swanson, E.T. (2005). "Do Actions Speak Louder Than Words?" *IJCB*.
+
+---
+
+## Author
+
+**Carlos Alba**  
+Department of Economics, Johns Hopkins University  
+Email: calbafa1@jh.edu
+
+---
+
+## License
+
+See [LICENSE](LICENSE) for details.
