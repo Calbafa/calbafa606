@@ -1,0 +1,6 @@
+name: calbafa606
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - texlive-core

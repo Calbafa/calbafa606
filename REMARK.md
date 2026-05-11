@@ -1,5 +1,7 @@
 remark-name: calbafa606
 
+tier: 2
+
 title: "Disentangling Monetary Policy, Central Bank Information, and Response-to-News Shocks: Evidence from Mexico"
 
 authors:
