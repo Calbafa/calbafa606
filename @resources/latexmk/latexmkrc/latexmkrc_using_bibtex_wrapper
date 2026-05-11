@@ -15,18 +15,12 @@
 # See: bibtex_wrapper.sh for the wrapper's implementation.
 # ---
 
-# Use double quotes so $latexmkroot (set by root .latexmkrc) is interpolated.
-# Escape @ to prevent Perl from interpreting it as an array.
-$bibtex = "sh $latexmkroot/\@resources/latexmk/latexmkrc/tools/bibtex_wrapper.sh %O %B";
+# Use single quotes for the path to prevent Perl from interpreting '@' as an array.
+# This is the correct and safe way to specify the path.
+$bibtex = 'sh ./@resources/latexmk/latexmkrc/tools/bibtex_wrapper.sh %O %B';
 
 # Setting `$bibtex_use = 2` tells latexmk that a .bbl file is needed and
 # that it should be generated if it's missing or outdated.
-#
-# NOTE: This means latexmk -c will delete .bbl files during cleanup.
-# To preserve .bbl files during cleanup, use the wrapper script:
-#   @resources/latexmk/latexmkrc/latexmk-clean-preserve-bbl.sh -c HAFiscal.tex
-# Or rely on reproduce_documents.sh's cleanup_auxiliary_files() function
-# which backs up and restores .bbl files around latexmk -c calls.
 $bibtex_use = 2;
 
 

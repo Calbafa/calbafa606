@@ -1,66 +1,39 @@
 {
   "@context": "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld",
   "@type": "SoftwareSourceCode",
-  "name": "HAFiscal",
-  "description": "Heterogeneous agent model for fiscal stimulus policy analysis",
+  "name": "calbafa606",
+  "description": "Disentangling Monetary Policy, Central Bank Information, and Response-to-News Shocks: Evidence from Mexico",
   "version": "1.0.0",
   "keywords": [
-    "heterogeneous agents",
-    "fiscal policy",
-    "HANK",
-    "MPC",
-    "marginal propensity to consume",
-    "computational economics",
-    "dynamic stochastic general equilibrium",
+    "monetary policy",
+    "high-frequency identification",
+    "forward guidance",
+    "central bank information",
+    "response-to-news",
+    "Bayesian VAR",
+    "emerging markets",
+    "Mexico",
     "REMARK",
     "Reproduction"
   ],
   "programmingLanguage": [
     {
       "@type": "ComputerLanguage",
-      "name": "Python",
-      "version": "3.9+"
+      "name": "MATLAB"
     },
     {
       "@type": "ComputerLanguage",
-      "name": "Stata"
+      "name": "LaTeX"
     }
   ],
-  "runtimePlatform": "Python 3.9+",
-  "codeRepository": "https://github.com/econ-ark/HAFiscal",
+  "codeRepository": "https://github.com/Calbafa/calbafa606",
   "license": "https://spdx.org/licenses/Apache-2.0",
   "author": [
     {
       "@type": "Person",
-      "givenName": "Christopher D.",
-      "familyName": "Carroll",
-      "orcid": "https://orcid.org/0000-0003-3732-9312"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Edmund",
-      "familyName": "Crawley"
-    },
-    {
-      "@type": "Person",
-      "givenName": "William",
-      "familyName": "Du"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Ivan",
-      "familyName": "Frankovic"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Hakon",
-      "familyName": "Tretvoll"
+      "givenName": "Carlos",
+      "familyName": "Alba"
     }
   ],
-  "citation": "https://github.com/econ-ark/HAFiscal/blob/main/CITATION.cff",
-  "relatedLink": [
-    "https://github.com/econ-ark/HAFiscal",
-    "https://github.com/llorracc/HAFiscal-Public"
-  ]
+  "citation": "https://github.com/Calbafa/calbafa606/blob/master/CITATION.cff"
 }
-

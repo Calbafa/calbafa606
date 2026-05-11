@@ -1,0 +1,31 @@
+\begin{table}[t]
+\hypertarget{Table 2}{}
+\begin{center}
+\resizebox{13cm}{!}{
+\begin{tabular}{l l l l}
+\toprule
+Series & Definition & Transformation & Source\\
+\midrule
+\multicolumn{4}{c}{\textbf{Domestic variables in }$\boldsymbol{y}_t$} \\
+\midrule
+$i_t^{1y}$ & 1-year government bond yield & No transformation & Banco de México \\
+$i_t^{10y}$ & 10-year government bond yield  & No transformation & Banco de México \\
+${ipc}_t$ & Mexican Stock Market Index & $\ln({ipc}_t)$ & Grupo BMV \\
+$s_t$ & MXN per USD exchange rate & $\ln(s_t)$ & Banco de México \\
+$y_t$ & Interpolated GDP & $\ln(y_t)$ & \hyperlink{Elizondo (2012)}{Elizondo (2012)} \\
+$p_t$ & Core consumer price index (CPI)  & $\ln(p_t)$ & INEGI \\
+$\pi^{e}_{t}$ & 12-month-ahead inflation expectations  & No transformation & Banco de México \\
+\midrule
+\multicolumn{4}{c}{\textbf{Exogenous variables in }$\boldsymbol{Z}_t$} \\
+\midrule
+$i_t^{2*}$ & U.S. 2-year Treasury yield & No transformation & FRED \\
+${sp500}_t$ & S\&P 500 index & $\ln({sp500}_t)$ & Bloomberg \\
+${vix}_t$ & VIX index & $\ln({vix}_t)$ & Bloomberg \\
+$y_t^{*}$ & U.S. Industrial Production & $\ln(y_t^{*})$ & FRED \\
+ $p_t^{*}$ & U.S. CPI & $\ln(p_t^{*})$ & FRED \\
+${oil}_t$ & Brent crude oil price & $\ln({oil}_t)$ & FRED \\
+\bottomrule
+\end{tabular}}
+\caption{Data Description}
+\end{center}
+\end{table}
