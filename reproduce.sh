@@ -7,36 +7,29 @@ echo "Shocks: Evidence from Mexico"
 echo "========================================"
 
 # -----------------------------------------------
-# 1. Setup environment
-# -----------------------------------------------
-
-if [ ! -d ".venv-darwin" ]; then
-    echo "Creating virtual environment..."
-    bash reproduce/reproduce_environment_comp_uv.sh <<EOF
-n
-EOF
-fi
-
-if [ -f ".venv-darwin/bin/activate" ]; then
-    echo "Activating environment..."
-    source .venv-darwin/bin/activate
-fi
-
-# -----------------------------------------------
-# 2. Empirical analysis
+# 1. Empirical analysis
 # -----------------------------------------------
 # The Bayesian VAR estimation and impulse response
-# computation were conducted in MATLAB. Pre-computed
-# figures and tables are included in the repository.
-# See Code/Empirical/ for details.
+# computation were conducted in MATLAB using an
+# adaptation of the Jarocinski and Karadi (2020)
+# replication code (publicly available from the
+# AEJ: Macroeconomics website).
+#
+# Pre-computed figures and tables are included in
+# the repository. See Code/README.md for details.
 
-echo "Figures and tables are pre-computed (MATLAB)."
+echo ""
+echo "Step 1: Empirical results"
+echo "  Figures and tables are pre-computed (MATLAB)."
+echo "  See Code/README.md for methodology details."
+echo ""
 
 # -----------------------------------------------
-# 3. Compile LaTeX document
+# 2. Compile LaTeX document
 # -----------------------------------------------
 
-echo "Compiling calbafa606.tex..."
+echo "Step 2: Compiling calbafa606.tex..."
+echo ""
 
 pdflatex -interaction=nonstopmode calbafa606.tex
 bibtex calbafa606 || true
@@ -44,9 +37,10 @@ pdflatex -interaction=nonstopmode calbafa606.tex
 pdflatex -interaction=nonstopmode calbafa606.tex
 
 # -----------------------------------------------
-# 4. Verify output
+# 3. Verify output
 # -----------------------------------------------
 
+echo ""
 if [ -f "calbafa606.pdf" ]; then
     echo "========================================"
     echo "Success! calbafa606.pdf has been generated."
@@ -54,6 +48,7 @@ if [ -f "calbafa606.pdf" ]; then
 else
     echo "========================================"
     echo "Error: PDF generation failed."
+    echo "Check that pdflatex and bibtex are installed."
     echo "========================================"
     exit 1
 fi

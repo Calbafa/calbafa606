@@ -1,76 +1,34 @@
-# Disentangling Monetary Policy, Central Bank Information, and Response-to-News Shocks  
-## Evidence from an Emerging Market (Mexico)
+# Disentangling Monetary Policy, Central Bank Information, and Response-to-News Shocks: Evidence from Mexico
 
 This repository contains a reproducible research project studying the transmission of monetary policy in Mexico using high-frequency identification techniques.
 
-The project is structured as a REMARK (Replications and Reproducible Research in Economics) repository and is based on an original empirical research paper.
+The project is structured as a [REMARK](https://github.com/econ-ark/REMARK) (Replications and Reproducible Research in Economics) repository, forked from the [HAFiscal](https://github.com/llorracc/HAFiscal) project template by Carroll et al. (2024).
 
 ---
 
-## 🎯 Research Question
+## Research Question
 
-How do monetary policy shocks affect macroeconomic and financial variables in an emerging market economy like Mexico?
+How do monetary policy shocks affect macroeconomic and financial variables in an emerging market economy like Mexico? And what happens when we disentangle monetary policy shocks from other information embedded in central bank announcements?
 
-More importantly:
+## Key Contribution
 
-👉 What happens when we disentangle monetary policy shocks from other information embedded in central bank announcements?
+This paper decomposes high-frequency monetary policy surprises around Banco de México announcements into three structural components:
 
----
+- **Monetary Policy (MP) shocks**: Exogenous changes in the policy rate
+- **Central Bank Information (CBI) shocks**: Signals about the state of the economy revealed by the central bank's decision
+- **Response-to-News (RN) shocks**: Responses to publicly available information that markets had not yet fully priced in
 
-## 🧠 Key Contribution
+We show that failing to separate these components leads to biased impulse responses (e.g., output increasing after contractionary shocks). Once shocks are properly disentangled, the responses align with standard theory: output and prices decline, the exchange rate appreciates, and inflation expectations remain anchored.
 
-This paper decomposes high-frequency monetary policy surprises into three components:
+## Methodology
 
-- **Monetary Policy (MP) shocks**  
-- **Central Bank Information (CBI) shocks**  
-- **Response-to-News (RN) shocks**
+The empirical framework adapts the high-frequency identification approach of [Jarociński and Karadi (2020)](https://doi.org/10.1257/mac.20180090) to Mexican data. The analysis combines:
 
-We show that failing to separate these components leads to biased and counterintuitive results, such as:
+1. **High-frequency surprise construction** around 214 scheduled Banco de México announcements (2002–2024)
+2. **Sign-restricted Bayesian VAR** to decompose surprises into MP, CBI, and RN shocks
+3. **Impulse response analysis** of macroeconomic and financial variables to each identified shock
 
-- Output increasing after contractionary shocks  
-- Inflation rising after rate hikes  
-- Currency depreciation instead of appreciation  
-
-Once shocks are properly disentangled:
-
-- Output and prices decline (hump-shaped)  
-- Exchange rate appreciates  
-- Inflation expectations remain anchored  
-
----
-
-## 📊 Empirical Framework
-
-We use high-frequency identification (HFI) around central bank announcements combined with time-series methods (e.g., VAR/local projections).
-
-Baseline representation:
-
-$$
-mps_t = \alpha + X_{t-}'\beta + u_t
-$$
-
-Where:
-
-- $mps_t$ = monetary policy surprise  
-- $X_{t-}$ = macroeconomic and financial controls  
-- $u_t$ = error term  
-
----
-
-## 📊 Data and Variables
-
-The analysis includes:
-
-- High-frequency interest rate surprises  
-- Target rate shocks  
-- Forward guidance (FG) shocks  
-
-Macroeconomic outcomes:
-
-- Output (Δ log output, 6 months)  
-- Inflation (Δ log CPI, 6 months)  
-- Exchange rates  
-- Inflation expectations  
+See [`Code/README.md`](Code/README.md) for details on the methodology and code availability. See [`Data/README.md`](Data/README.md) for data sources and availability.
 
 ---
 
@@ -90,14 +48,12 @@ The paper is organized as modular subfiles:
 | `Subfiles/Comparing-policies.tex` | Impulse response functions |
 | `Subfiles/Conclusion.tex` | Conclusion |
 | `Subfiles/Appendix-HANK.tex` | Appendix A: Bayesian estimation |
-| `Subfiles/Appendix-NoSplurge.tex` | Appendix B: Supplemental results |
-
----
+| `Subfiles/Appendix-NoSplurge.tex` | Appendix B: Robustness results |
 
 ## Figures and Tables
 
 - **Main figures**: `Figures/Figure_1_Mex.pdf`, `Figures/Figure_2_Mex.pdf`
-- **Robustness figures**: `Figures/Figures_Mex/` (24 additional figures)
+- **Robustness figures**: `Figures/Figures_Mex/` (56 additional figures)
 - **Tables**: `Tables/Table_1_Mex.tex`, `Tables/Table_2_Mex.tex`, `Tables/Table_3_Mex.tex`
 
 ---
@@ -110,7 +66,9 @@ To reproduce the paper PDF:
 bash reproduce.sh
 ```
 
-This script compiles the LaTeX document. The empirical analysis (Bayesian VAR estimation, impulse response computation) was conducted in MATLAB, and its outputs (figures and tables) are included in the repository.
+This compiles the LaTeX document. The empirical analysis (Bayesian VAR estimation and impulse responses) was conducted in MATLAB; pre-computed figures and tables are included in the repository.
+
+**Requirements**: `pdflatex` and `bibtex` (any standard TeX distribution).
 
 ---
 
@@ -119,17 +77,20 @@ This script compiles the LaTeX document. The empirical analysis (Bayesian VAR es
 ```
 calbafa606/
 ├── calbafa606.tex          # Main LaTeX document
-├── HAFiscal.bib            # Bibliography
+├── calbafa606.bib          # Bibliography database
+├── reproduce.sh            # Reproduction script
 ├── Subfiles/               # Paper sections (modular LaTeX subfiles)
 ├── Figures/                # Main figures (PDF)
 │   └── Figures_Mex/        # Robustness check figures
 ├── Tables/                 # LaTeX tables
-├── Code/                   # Empirical code
-│   └── Empirical/          # MATLAB/estimation scripts
-├── Data/                   # Data description
+├── Code/                   # Empirical code documentation
+├── Data/                   # Data sources documentation
+├── @local/                 # Project-specific LaTeX configuration
+├── @resources/             # Shared LaTeX resources (econark class)
 ├── REMARK.md               # REMARK metadata
 ├── CITATION.cff            # Citation information
-├── reproduce.sh            # Reproduction script
+├── codemeta.json           # CodeMeta structured metadata
+├── LICENSE                 # Apache License 2.0
 └── README.md               # This file
 ```
 
@@ -137,21 +98,20 @@ calbafa606/
 
 ## References
 
-- Jarociński, M. and Karadi, P. (2020). "Deconstructing Monetary Policy Surprises." *AEJ: Macroeconomics*.
+- Jarociński, M. and Karadi, P. (2020). "Deconstructing Monetary Policy Surprises: The Role of Information Shocks." *American Economic Journal: Macroeconomics*, 12(2), pp. 1–43.
 - Jarociński, M. and Karadi, P. (2025). "Central Bank Information Effects and Transitory Announcements." *American Economic Review*.
-- Bauer, M.D. and Swanson, E.T. (2023). "An Alternative Explanation for the 'Fed Information Effect'." *American Economic Review*.
-- Gürkaynak, R.S., Sack, B., and Swanson, E.T. (2005). "Do Actions Speak Louder Than Words?" *IJCB*.
+- Bauer, M.D. and Swanson, E.T. (2023). "An Alternative Explanation for the 'Fed Information Effect'." *American Economic Review*, 113(3), pp. 664–700.
+- Gürkaynak, R.S., Sack, B., and Swanson, E.T. (2005). "Do Actions Speak Louder Than Words? The Response of Asset Prices to Monetary Policy Actions and Statements." *International Journal of Central Banking*, 1(1), pp. 55–93.
+- Carroll, C.D., Crawley, E., Dai, W., Frankovic, I., and Tretvoll, H. (2024). "Welfare and Spending Effects of Consumption Stimulus Policies." Working Paper.
 
 ---
 
 ## Author
 
-**Carlos Alba**  
-Department of Economics, Johns Hopkins University  
+**Carlos Alba**
+Department of Economics, Johns Hopkins University
 Email: calbafa1@jh.edu
-
----
 
 ## License
 
-See [LICENSE](LICENSE) for details.
+See [LICENSE](LICENSE) for details (Apache License 2.0).

@@ -556,3 +556,6 @@ Equations/*.tex
 Code/Empirical/p04i6.dta
 .docker-initialized 
 .venv/
+
+# Original HAFiscal project (reference only, available at upstream repo)
+HAFiscal-original/
