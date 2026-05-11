@@ -160,7 +160,7 @@ calbafa606/
 ## References
 
 - Jarociński, M. and Karadi, P. (2020). "Deconstructing Monetary Policy Surprises: The Role of Information Shocks." *American Economic Journal: Macroeconomics*, 12(2), pp. 1–43.
-- Jarociński, M. and Karadi, P. (2025). "Central Bank Information Effects and Transitory Announcements." *American Economic Review*.
+- Jarociński, M. and Karadi, P. (2025). "Disentangling Monetary Policy, Central Bank Information, and Fed Response-to-News Shocks." CEPR Discussion Paper No. 19923.
 - Bauer, M.D. and Swanson, E.T. (2023). "An Alternative Explanation for the 'Fed Information Effect'." *American Economic Review*, 113(3), pp. 664–700.
 - Gürkaynak, R.S., Sack, B., and Swanson, E.T. (2005). "Do Actions Speak Louder Than Words? The Response of Asset Prices to Monetary Policy Actions and Statements." *International Journal of Central Banking*, 1(1), pp. 55–93.
 
