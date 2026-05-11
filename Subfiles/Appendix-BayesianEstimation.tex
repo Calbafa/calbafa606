@@ -1,0 +1,92 @@
+\input{./._relpath-to-latexroot.ltx}
+\documentclass[\latexroot/\projectname]{subfiles}
+\input{\latexroot/@resources/subfile-setup.ltx}
+\appendix\setcounter{section}{0} % standalone: use appendix numbering and start at B (whenstandalone removed - redundant in preamble)
+
+\begin{document}
+
+\FloatBarrier
+\section{Appendix: Bayesian Estimation}
+\whenintegrated{\label{sec:appendix-hank}} % integrated doc: SST for labels
+
+We estimate the VAR at the monthly frequency with a vector of high-frequency surprises and domestic macroeconomic and financial variables, together with exogenous foreign controls.
+
+\paragraph{Reduced form.}
+Let the vector of endogenous variables be given by
+\[
+\boldsymbol{Y}_t =
+\begin{pmatrix}
+\boldsymbol{m}_t^{\,j} \\
+\boldsymbol{y}_t
+\end{pmatrix},
+\qquad j \in \{\text{TR}, \text{FG}\},
+\]
+where $\boldsymbol{m}_t^{\,j} \in \mathbb{R}^{N_m}$ collects the fitted and residual components $(\text{FIT}_t^{\,j}, \text{RES}_t^{\,j})$ associated with either target-rate or forward-guidance surprises, together with the equity-price surprise $\text{SP}_t$, and $\boldsymbol{y}_t \in \mathbb{R}^{N_y}$ stacks domestic macroeconomic and financial variables. The vector $\boldsymbol{Z}_t \in \mathbb{R}^{N_z}$ collects exogenous foreign controls.
+
+The VAR is specified as
+\begin{equation}
+\label{eq:A1_VAR}
+\boldsymbol{Y}_t
+=
+\boldsymbol{c}
++ \sum_{p=1}^{P}
+\boldsymbol{B}^{p}\,\boldsymbol{Y}_{t-p}
++ \boldsymbol{\delta}\,\boldsymbol{Z}_t
++ \boldsymbol{u}_t,
+\qquad
+\boldsymbol{u}_t \sim \mathcal{N}(\mathbf{0}, \boldsymbol{\Sigma}).
+\end{equation}
+
+\paragraph{Stacked representation.}
+Let $\boldsymbol{Y} = (\boldsymbol{Y}_1,\dots,\boldsymbol{Y}_T)^\prime$ and define the regressor matrix $\boldsymbol{X}$ such that a typical row is
+\[
+\boldsymbol{x}_t^\prime =
+\big(\boldsymbol{Y}_{t-1}^\prime,\ldots,\boldsymbol{Y}_{t-P}^\prime,\ 1,\ \boldsymbol{Z}_t^\prime\big).
+\]
+Then the system can be written compactly as
+\[
+\boldsymbol{Y} = \boldsymbol{X}\boldsymbol{B} + \boldsymbol{U},
+\]
+where $\boldsymbol{B}$ collects all coefficient matrices, intercepts, and exogenous loadings.
+
+\paragraph{Prior.}
+We adopt an independent Normal–Inverse-Wishart prior, combining a Minnesota prior on lag coefficients with diffuse priors on intercepts and exogenous variables:
+\begin{align}
+p(\boldsymbol{\Sigma}\mid \underline{\boldsymbol{S}},\underline{\boldsymbol{v}})
+&= \mathrm{IW}(\underline{\boldsymbol{S}},\underline{\boldsymbol{v}}),\\
+p\!\left(\mathrm{vec}\,\boldsymbol{B}\mid \underline{\boldsymbol{B}},\underline{\boldsymbol{Q}}\right)
+&= \mathcal{N}\!\left(\mathrm{vec}\,\underline{\boldsymbol{B}},\ \underline{\boldsymbol{Q}}\right).
+\end{align}
+
+The prior mean for the first own lag coefficient is set to one for output and prices and to zero for all other variables. All other lag coefficients are centered at zero. This choice has negligible effects on the posterior estimates and impulse responses. The prior standard deviation for the coefficient on lag $p$ of variable $j$ in equation $i$ is given by
+\[
+\mathrm{sd}\!\left(\beta_{i\leftarrow j,p}\right)=\lambda_1^{-1}\,\frac{\sigma_i}{\sigma_j}\,p^{-\lambda_2},
+\qquad \lambda_1=5,\ \lambda_2=1,
+\]
+where $\sigma_i$ and $\sigma_j$ are residual standard deviations from univariate AR($P$) models.
+
+We set $\underline{\boldsymbol{v}} = N + 2$, with $N = N_m + N_y$, and $\underline{\boldsymbol{S}} = \mathrm{diag}(\sigma_1^2,\ldots,\sigma_N^2)$. Coefficients on intercepts and exogenous variables receive diffuse priors.
+
+\paragraph{Conditional posteriors.}
+Let $\boldsymbol{U} = \boldsymbol{Y} - \boldsymbol{X}\boldsymbol{B}$. The conditional posterior distributions are given by
+\begin{align}
+p(\boldsymbol{\Sigma}\mid \boldsymbol{Y}, \boldsymbol{B})
+&= \mathrm{IW}(\overline{\boldsymbol{S}}, \overline{\boldsymbol{v}}),\\
+\overline{\boldsymbol{S}}
+&= \boldsymbol{U}^\prime \boldsymbol{U} + \underline{\boldsymbol{S}},\qquad
+\overline{\boldsymbol{v}} = T + \underline{\boldsymbol{v}}.
+\end{align}
+
+Conditional on $\boldsymbol{\Sigma}$, the posterior for $\boldsymbol{B}$ is
+\begin{align}
+p\!\left(\mathrm{vec}\,\boldsymbol{B}\mid \boldsymbol{Y}, \boldsymbol{\Sigma}\right)
+&= \mathcal{N}\!\left(\mathrm{vec}\,\overline{\boldsymbol{B}},\ \overline{\boldsymbol{Q}}\right),\\
+\overline{\boldsymbol{Q}}
+&=\Big(\underline{\boldsymbol{Q}}^{-1}+\boldsymbol{\Sigma}^{-1}\otimes \boldsymbol{X}^\prime\boldsymbol{X}\Big)^{-1},\\
+\mathrm{vec}\,\overline{\boldsymbol{B}}
+&=\overline{\boldsymbol{Q}}\left[\underline{\boldsymbol{Q}}^{-1}\mathrm{vec}\,\underline{\boldsymbol{B}}
++\left(\boldsymbol{\Sigma}^{-1}\otimes \boldsymbol{X}^\prime\right)\mathrm{vec}(\boldsymbol{Y})\right].
+\end{align}
+
+\end{document}
+}

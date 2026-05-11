@@ -1,21 +1,47 @@
 # Data
 
-No data were harmed in the making of this paper.
+## Overview
 
-We deliberately used standard data and standard results from the analysis of data from other papers, so that no suspicion could accrue that we tortured the data to make it confess to anything.
+This paper uses high-frequency financial data and monthly macroeconomic variables to identify and analyze monetary policy shocks in Mexico. The data covers 214 scheduled Banco de México monetary policy announcements from January 2002 to December 2024.
 
-There are a few calculations, documented in the Code/ directory, which reproduce calculations made in other work (most notably, calculations about the distribution of liquid assets from the 2004 Survey of Consumer Finances; indeed, the precise reason we did not use a newer survey was so that our results would be directly comparable to those obtained in a long literature that has chosen the 2004 SCF as a benchmark).  The 2004 SCF has remained a standard simply because results obtained from later surveys on the relevant questions have been quite similar.
+## Data Sources
 
-## SCF Data Documentation
+### High-Frequency Financial Data (Event Study)
 
-For detailed documentation on the SCF 2004 data used in this replication package, including data provenance, inflation adjustments, and verification procedures, see:
+| Variable | Description | Source | Access |
+|----------|-------------|--------|--------|
+| TIIE-28 swaps | Interest rate swaps at 1, 3, 6, 9, 12-month maturities | Bloomberg | Proprietary |
+| IPC index | Mexican Stock Market Index (close-to-close) | Grupo BMV | Proprietary |
+| MXN/USD | Nominal peso-dollar exchange rate | Banco de México | Public |
+| FX implied vol. | 1-month options on MXN | Bloomberg | Proprietary |
 
-**[SCF Data Appendix](reproduce/reproduce_data_moments/SCF-data-appendix.md)**
+### Macroeconomic Variables (Monthly VAR)
 
-This document provides comprehensive information for the QE Data Editor on:
+| Variable | Description | Source | Access |
+|----------|-------------|--------|--------|
+| GDP | Interpolated monthly GDP (Kalman filter; Elizondo, 2012) | INEGI / Author | Public (raw) |
+| Core CPI | Seasonally adjusted (X13-ARIMA) | INEGI | Public |
+| Gov. bond yields | 1-year and 10-year zero-coupon | Banco de México | Public |
+| Inflation exp. | 12-month-ahead from Survey of Professional Forecasters | Banco de México | Public |
 
-- Data files used (Summary Extract Data only - `rscfp2004.dta`)
-- Data provenance and sources
-- Inflation adjustment procedures (2013 dollars vs 2022 dollars)
-- Verification and comparison workflows
-- Commands to reproduce data processing
+### Exogenous Foreign Controls
+
+| Variable | Source | Access |
+|----------|--------|--------|
+| U.S. 2-year Treasury yield | FRED | Public |
+| S&P 500 | FRED / Bloomberg | Public |
+| VIX | FRED | Public |
+| U.S. Industrial Production | FRED | Public |
+| U.S. CPI | FRED | Public |
+| Brent crude oil price | FRED | Public |
+
+## Data Availability
+
+**Publicly available data**: Macroeconomic series from Banco de México, INEGI, and FRED can be freely downloaded from each institution's website.
+
+**Proprietary data**: The high-frequency financial data (Bloomberg terminal data for TIIE-28 swaps, IPC intraday, and FX implied volatility) are subject to licensing restrictions and cannot be redistributed. Researchers with Bloomberg access can replicate the dataset using the tickers and event windows described in Section 2 of the paper.
+
+## Sample Period
+
+- **Event study**: January 2002 – December 2024 (214 scheduled monetary policy announcements)
+- **Monthly VAR**: January 2002 – December 2024
