@@ -31,6 +31,11 @@ echo ""
 echo "Step 2: Compiling calbafa606.tex..."
 echo ""
 
+REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+export TEXMFHOME="${REPO_ROOT}/@resources/texlive/texmf-local"
+export TEXINPUTS="${REPO_ROOT}/@resources/texlive/texmf-local/tex/latex//:${TEXINPUTS:-}"
+export BSTINPUTS="${REPO_ROOT}/@resources/texlive/texmf-local/bibtex/bst//:${BSTINPUTS:-}"
+
 pdflatex -interaction=nonstopmode calbafa606.tex
 bibtex calbafa606 || true
 pdflatex -interaction=nonstopmode calbafa606.tex
