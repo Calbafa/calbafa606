@@ -37,7 +37,7 @@ All figures and tables produced by the empirical analysis are included in the re
 
 - `Figures/Figure_1_Mex.pdf` — High-frequency monetary policy surprises
 - `Figures/Figure_2_Mex.pdf` — Bayesian VAR impulse responses
-- `Figures/Figures_Mex/` — Robustness checks (24 figures)
+- `Figures/Figures_Mex/` — Robustness checks (56 figures)
 - `Tables/Table_1_Mex.tex` — Summary statistics
 - `Tables/Table_2_Mex.tex` — Variance decomposition
 - `Tables/Table_3_Mex.tex` — Forecast error variance decomposition
