@@ -14,15 +14,22 @@ repository-code: "https://github.com/Calbafa/calbafa606"
 
 url: "https://github.com/Calbafa/calbafa606"
 
+date-released: "2026-05-11"
+
 abstract: >
-  This repository contains a reproducible empirical analysis of monetary policy shocks in Mexico.
-  It decomposes high-frequency monetary policy surprises into monetary policy, central bank
-  information, and response-to-news shocks, and studies their macroeconomic effects.
+  This repository contains a reproducible empirical analysis of the transmission of conventional
+  and unconventional monetary policy in Mexico. Using high-frequency identification techniques,
+  it decomposes target-rate and forward-guidance surprises into monetary policy, central bank
+  information, and response-to-news shocks, and studies their macroeconomic effects using a
+  Bayesian VAR framework.
 
 keywords:
   - monetary policy
-  - central bank information
   - high-frequency identification
+  - forward guidance
+  - central bank information
+  - response-to-news
+  - Bayesian VAR
   - emerging markets
   - Mexico
 
